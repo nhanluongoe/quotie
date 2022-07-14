@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>List of Authors</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th> Author </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:if="${authors.empty}">
+        <td colspan="2"> No Authors Available </td>
+      </tr>
+      <tr th:each="author : ${authors}">
+        <td><span th:text="${author.name}"> Name </span></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>
