@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import com.example.demo.quote.Quote;
 
 @Entity
-@Table(name = "Author")
+@Table(name = "author")
 public class Author {
 
   @Id
