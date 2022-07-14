@@ -2,6 +2,7 @@ package com.example.demo.author;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class Author {
   @Column(name = "name")
   private String name;
 
-  @OneToMany(mappedBy = "author")
+  @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
   private List<Quote> quotes;
 
   public Long getId() {
