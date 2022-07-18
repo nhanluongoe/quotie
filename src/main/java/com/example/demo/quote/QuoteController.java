@@ -23,6 +23,6 @@ public class QuoteController {
   public String quoteList(Model model) {
     List<Quote> quotes = quoteService.getAllQuotes();
     model.addAttribute("quotes", quotes);
-    return "quote-list";
+    return "quote/quote-list";
   }
 }
