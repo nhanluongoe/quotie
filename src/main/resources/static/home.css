@@ -1,0 +1,8 @@
+.quote-container {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+.quote-content {
+  color: red;
+}
