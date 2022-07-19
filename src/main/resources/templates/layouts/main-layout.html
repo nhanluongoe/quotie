@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8" />
   <title th:replace="${title}">Page 1 Title</title>
-  <!-- <link rel="stylesheet" type="text/css" th:href="@{/main.css}" href="../../static/main.css" /> -->
+  <link rel="stylesheet" type="text/css" th:href="@{/main.css}" href="../../static/main.css" />
   <!-- Other javascript, css source files -->
   <th:block th:replace="${otherStaticResources} ?: ~{}"></th:block>
 </head>
