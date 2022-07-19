@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+  <div class="quote-container" th:fragment="quote-grid">
+    <div th:if="${quotes.empty}">No Quotes Available</div>
+    <div th:each="quote : ${quotes}">
+      <div class="quote-content">
+        <span th:text="${quote.content}">Content</span>
+      </div>
+      <div class="quote-author">
+        <span th:text="${quote.author.name}">Author</span>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
