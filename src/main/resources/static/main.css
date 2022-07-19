@@ -1,0 +1,8 @@
+.header > ul {
+  display: flex;
+}
+
+.header > ul li {
+  list-style: none;
+  margin-right: 1rem;
+}
