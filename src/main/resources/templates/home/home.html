@@ -1,13 +1,19 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/main-layout :: main-fragment(  
+  ~{::title},
+  ~{:: #home-static-resources},
+  ~{:: #home-header},
+  ~{:: #home-main-content},  
+  ~{:: #home-footer}
+  )}">
 
 <head>
-  <title>Getting Started: Serving Web Content</title>
+  <title>Quotie</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
 <body>
-  <p th:text="'Hello, ' + ${name} + '!'" />
+  <div id="home-header" th:replace="~{/fragments/header :: header}" />
 </body>
 
 </html>
