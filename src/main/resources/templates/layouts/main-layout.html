@@ -11,17 +11,19 @@
 </head>
 
 <body>
-  <header th:insert="${header} ?: ~{}">
-    header
-  </header>
-  <section>
-    <article th:insert="${mainContent} ?: ~{}">
-      page content
-    </article>
-  </section>
-  <footer th:insert="${footer} ?: ~{}">
-    footer
-  </footer>
+  <div class="page-container">
+    <header th:insert="${header} ?: ~{}">
+      header
+    </header>
+    <section>
+      <article th:insert="${mainContent} ?: ~{}">
+        page content
+      </article>
+    </section>
+    <footer th:insert="${footer} ?: ~{}">
+      footer
+    </footer>
+  </div>
 </body>
 
 </html>
