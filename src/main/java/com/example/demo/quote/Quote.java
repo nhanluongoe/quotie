@@ -22,6 +22,12 @@ public class Quote {
   @Column(name = "content")
   private String content;
 
+  @Column(name = "up_votes")
+  private Long upVotes;
+
+  @Column(name = "down_votes")
+  private Long downVotes;
+
   @ManyToOne
   @JoinColumn(name = "author_id")
   private Author author;
