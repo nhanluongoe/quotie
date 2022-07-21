@@ -22,4 +22,8 @@ public class QuoteService {
   public Quote getQuoteById(Long id) {
     return quoteRepository.findById(id).orElse(null);
   }
+
+  public List<Quote> getQuotesByTagId(Long tag_id) {
+    return quoteRepository.findAllByTag(tag_id);
+  }
 }
