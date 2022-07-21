@@ -24,6 +24,12 @@ public class Author {
   @Column(name = "name")
   private String name;
 
+  @Column(name = "day_of_birth")
+  private java.sql.Date dob;
+
+  @Column(name = "day_of_death")
+  private java.sql.Date dod;
+
   @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
   private List<Quote> quotes;
 
