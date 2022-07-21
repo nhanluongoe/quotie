@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>List of Tags</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+  <table th:fragment="tag-list(tags)">
+    <thead>
+      <tr>
+        <th> Id </th>
+        <th> Name </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:if="${tags.empty}">
+        <td colspan="2"> No Quotes Available </td>
+      </tr>
+      <tr th:each="tag : ${tags}">
+        <td><span th:text="${tag.id}"> Id </span></td>
+        <td><span th:text="${tag.name}"> Name </span></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

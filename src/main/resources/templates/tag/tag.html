@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/main-layout :: main-fragment(  
+  ~{::title},
+  ~{:: #tag-static-resources},
+  ~{:: #tag-header},
+  ~{:: #tag-main-content},  
+  ~{:: #tag-footer}
+  )}">
+
+<head>
+  <title>Tags</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+  <div id="tag-header" th:replace="/fragments/header :: header" />
+  <div id="tag-main-content">
+    <section>
+      <div th:replace="/tag/tag-list :: tag-list(${tags})" />
+    </section>
+  </div>
+</body>
+
+</html>
