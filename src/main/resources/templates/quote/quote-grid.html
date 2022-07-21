@@ -6,7 +6,7 @@
 </head>
 
 <body>
-  <div class="quote-container" th:fragment="quote-grid">
+  <div class="quote-container" th:fragment="quote-grid(${quotes})">
     <div th:if="${quotes.empty}">No Quotes Available</div>
     <div th:each="quote : ${quotes}">
       <figure>

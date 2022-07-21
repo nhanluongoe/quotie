@@ -17,7 +17,10 @@
 <body>
   <div id="home-header" th:replace="/fragments/header :: header" />
   <div id="home-main-content">
-    <div th:replace="/quote/quote-grid :: quote-grid" />
+    <section>
+      <h2>Popular Quotes</h2>
+      <div th:replace="/quote/quote-grid :: quote-grid(quotes)" />
+    </section>
   </div>
 </body>
 
