@@ -21,4 +21,12 @@ public class AuthorService {
   public Author getAuthorById(Long id) {
     return authorRepository.findById(id).orElse(null);
   }
+
+  public List<Author> getAuthorByFirstNameLetter(Character letter) {
+    return authorRepository.findAuthorsByFirstLetterName(letter);
+  }
+
+  public List<Author> getFirstAuthorsByFirstNameLetter(Character letter, Integer limit) {
+    return authorRepository.findFirstAuthorsByFirstLetterName(letter, limit);
+  }
 }
