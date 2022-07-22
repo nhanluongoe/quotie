@@ -17,7 +17,7 @@ public class HomeController {
     this.quoteService = quoteService;
   }
 
-  @GetMapping("/")
+  @GetMapping(value = "/")
   public String home(Model model) {
     model.addAttribute("quotes", quoteService.getAllQuotes());
     return "home/home";
