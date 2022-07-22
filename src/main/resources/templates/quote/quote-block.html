@@ -1,0 +1,8 @@
+<div th:fragment="quote-block(quote)">
+  <figure>
+    <blockquote>
+      <p>[[${quote.content}]]</p>
+    </blockquote>
+    <figcaption>—[[${quote.author.name}]]</figcaption>
+  </figure>
+</div>

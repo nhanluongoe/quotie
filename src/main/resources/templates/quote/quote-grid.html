@@ -9,12 +9,7 @@
   <div class="quote-container" th:fragment="quote-grid(${quotes})">
     <div th:if="${quotes.empty}">No Quotes Available</div>
     <div th:each="quote : ${quotes}">
-      <figure>
-        <blockquote cite="https://www.huxley.net/bnw/four.html">
-          <p>[[${quote.content}]]</p>
-        </blockquote>
-        <figcaption>—[[${quote.author.name}]]</figcaption>
-      </figure>
+      <div th:replace="/quote/quote-block :: quote-block(${quote})" />
     </div>
   </div>
 </body>
