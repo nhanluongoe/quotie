@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/main-layout :: main-fragment(  
+  ~{::title},
+  ~{:: #static-resources},
+  ~{:: #header},
+  ~{:: #main-content},  
+  ~{:: #footer}
+  )}">
+
+<head>
+  <title>Author Detail</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <!-- <link id="home-static-resources" rel="stylesheet" type="text/css" th:href="@{/home.css}"
+    href="../../static/home.css" /> -->
+</head>
+
+<body>
+  <div id="header" th:replace="/fragments/header :: header" />
+  <div id="main-content">
+    <section>
+      <h3>Information</h3>
+      <h3>[[${author.name}]]</h3>
+      <p>Born: [[${author.dob}]]</p>
+      <p>Died: [[${author.dod}]]</p>
+    </section>
+    <section>
+      <h3>Quotes</h3>
+      <div th:replace="/quote/quote-grid :: quote-grid(${author.quotes})" />
+    </section>
+  </div>
+</body>
