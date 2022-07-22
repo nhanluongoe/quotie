@@ -22,7 +22,7 @@
       <div th:each="letter, iter : ${letters}">
         <h3 th:text="${#strings.capitalize(letter)}">First Letter of Author Name</h3>
         <hr />
-        <div th:replace="/author/first-author-list :: first-author-list(${authorsByFirstLetterName[iter.index]})" />
+        <div th:replace="author/first-author-list :: first-author-list(${authorsByFirstLetterName[iter.index]})" />
       </div>
     </section>
   </div>
