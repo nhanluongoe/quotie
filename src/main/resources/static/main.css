@@ -3,6 +3,10 @@
   margin: auto;
 }
 
+.body {
+  min-height: 92vh;
+}
+
 .header > ul {
   display: flex;
 }
@@ -19,6 +23,13 @@ a {
 
 .nav-active {
   font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Block quotes */
