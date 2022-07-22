@@ -57,4 +57,19 @@ public class Author {
     this.quotes = quotes;
   }
 
+  public java.sql.Date getDob() {
+    return dob;
+  }
+
+  public void setDob(java.sql.Date dob) {
+    this.dob = dob;
+  }
+
+  public java.sql.Date getDod() {
+    return dod;
+  }
+
+  public void setDod(java.sql.Date dod) {
+    this.dod = dod;
+  }
 }
