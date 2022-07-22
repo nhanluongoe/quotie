@@ -30,6 +30,9 @@ public class Author {
   @Column(name = "day_of_death")
   private java.sql.Date dod;
 
+  @Column(name = "biography")
+  private String biography;
+
   @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
   private List<Quote> quotes;
 
@@ -71,5 +74,13 @@ public class Author {
 
   public void setDod(java.sql.Date dod) {
     this.dod = dod;
+  }
+
+  public String getBiography() {
+    return biography;
+  }
+
+  public void setBiography(String biography) {
+    this.biography = biography;
   }
 }
