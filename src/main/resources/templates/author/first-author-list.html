@@ -1,7 +1,7 @@
 <div th:fragment="first-author-list(authors)">
   <ul>
     <li th:each="author : ${authors}">
-      <a>[[${author.name}]]</a>
+      <a th:href="@{/author/{id}(id=${author.id})}">[[${author.name}]]</a>
     </li>
   </ul>
 </div>
