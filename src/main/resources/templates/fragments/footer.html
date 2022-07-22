@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+  <footer class="footer" th:fragment="footer">
+    <span>© Quotie 2022 - [[${#dates.format(#dates.createNow(), 'YYYY')}]]</span>
+  </footer>
+</body>
+
+</html>
