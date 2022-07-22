@@ -5,7 +5,7 @@
 }
 
 .body {
-  min-height: 92vh;
+  min-height: 90vh;
 }
 
 .header > ul {
@@ -22,6 +22,11 @@ ul li {
 }
 
 /* Nav bar */
+.header {
+  border-bottom: 1px solid rgb(223, 217, 217);
+  margin-bottom: 10px;
+}
+
 a {
   text-decoration: none;
 }
@@ -35,6 +40,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
+  padding-top: 15px;
+  border-top: 1px solid rgb(223, 217, 217);
 }
 
 /* Block quotes */
