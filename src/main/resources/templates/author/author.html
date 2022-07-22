@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/main-layout :: main-fragment(  
+  ~{::title},
+  ~{:: #author-static-resources},
+  ~{:: #author-header},
+  ~{:: #author-main-content},  
+  ~{:: #author-footer}
+  )}">
+
+<head>
+  <title>Authors</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <!-- <link id="home-static-resources" rel="stylesheet" type="text/css" th:href="@{/home.css}"
+    href="../../static/home.css" /> -->
+</head>
+
+<body>
+  <div id="author-header" th:replace="/fragments/header :: header" />
+  <div id="author-main-content">
+    <section>
+      <h2>List of Authors</h2>
+      <div th:each="letter, iter : ${letters}">
+        <p>[[${letter}]]</p>
+        <div th:replace="/author/first-author-list :: first-author-list(${authorsByFirstLetterName[iter.index]})" />
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
