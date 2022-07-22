@@ -2,7 +2,7 @@ spring:
   datasource:
     url: ${SPRING_DATABASE_URL}
     username: ${SPRING_DATABASE_USERNAME}
-    password: ${SPRING_DATABASE_PASSWORD
+    password: ${SPRING_DATABASE_PASSWORD}
   jpa:
     properties:
       hibernate:
