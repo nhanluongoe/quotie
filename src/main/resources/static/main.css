@@ -12,6 +12,15 @@
   margin-right: 1rem;
 }
 
+/* Nav bar */
+a {
+  text-decoration: none;
+}
+
+.nav-active {
+  font-weight: bold;
+}
+
 /* Block quotes */
 blockquote {
   margin: 0;
