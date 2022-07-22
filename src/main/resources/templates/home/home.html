@@ -15,14 +15,14 @@
 </head>
 
 <body>
-  <div id="home-header" th:replace="/fragments/header :: header" />
+  <div id="home-header" th:replace="fragments/header :: header" />
   <div id="home-main-content">
     <section>
       <h2>Popular Quotes</h2>
-      <div th:replace="/quote/quote-grid :: quote-grid(${quotes})" />
+      <div th:replace="quote/quote-grid :: quote-grid(${quotes})" />
     </section>
   </div>
-  <div id="home-footer" th:replace="/fragments/footer :: footer" />
+  <div id="home-footer" th:replace="fragments/footer :: footer" />
 </body>
 
 </html>

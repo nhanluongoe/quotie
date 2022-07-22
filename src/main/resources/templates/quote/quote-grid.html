@@ -9,7 +9,7 @@
   <div class="quote-container" th:fragment="quote-grid(quotes)">
     <div th:if="${quotes.empty}">No Quotes Available</div>
     <div th:each="quote : ${quotes}">
-      <div th:replace="/quote/quote-block :: quote-block(${quote})" />
+      <div th:replace="quote/quote-block :: quote-block(${quote})" />
     </div>
   </div>
 </body>

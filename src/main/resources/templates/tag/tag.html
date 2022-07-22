@@ -13,13 +13,13 @@
 </head>
 
 <body>
-  <div id="tag-header" th:replace="/fragments/header :: header" />
+  <div id="tag-header" th:replace="fragments/header :: header" />
   <div id="tag-main-content">
     <section>
-      <div th:replace="/tag/tag-list :: tag-list(${tags})" />
+      <div th:replace="tag/tag-list :: tag-list(${tags})" />
     </section>
   </div>
-  <div id="tag-footer" th:replace="/fragments/footer :: footer" />
+  <div id="tag-footer" th:replace="fragments/footer :: footer" />
 </body>
 
 </html>
