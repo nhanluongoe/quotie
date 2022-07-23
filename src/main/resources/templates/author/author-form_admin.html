@@ -1,5 +1,5 @@
 <div th:fragment="author-form(author)">
-  <form action="#" th:action="@{/admin/author/add}" th:object="${author}">
+  <form action="#" th:action="@{/admin/author/add}" th:object="${author}" method="post">
     <div>
       <label for="name">Name</label>
       <input type="text" id="name" name="name" th:field="*{name}" />
@@ -14,7 +14,7 @@
     </div>
     <div>
       <label for="bio">biography</label>
-      <input type="textarea" id="bio" name="bio" th:field="*{biography}" />
+      <textarea type="text" id="bio" name="bio" th:field="*{biography}" />
     </div>
     <div>
       <input type="submit" value="Add" />
