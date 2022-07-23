@@ -30,7 +30,7 @@ public class Author {
   @Column(name = "day_of_death")
   private java.sql.Date dod;
 
-  @Column(name = "biography")
+  @Column(name = "biography", columnDefinition = "TEXT")
   private String biography;
 
   @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
