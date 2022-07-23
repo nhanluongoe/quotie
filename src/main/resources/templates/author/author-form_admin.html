@@ -1,0 +1,23 @@
+<div th:fragment="author-form(author)">
+  <form action="#" th:action="@{/admin/author/add}" th:object="${author}">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" th:field="*{name}" />
+    </div>
+    <div>
+      <label for="dob">Born</label>
+      <input type="text" id="dob" name="dob" th:field="*{dob}" />
+    </div>
+    <div>
+      <label for="dod">Died</label>
+      <input type="text" id="dod" name="dod" th:field="*{dod}" />
+    </div>
+    <div>
+      <label for="bio">biography</label>
+      <input type="textarea" id="bio" name="bio" th:field="*{biography}" />
+    </div>
+    <div>
+      <input type="submit" value="Add" />
+    </div>
+  </form>
+</div>
