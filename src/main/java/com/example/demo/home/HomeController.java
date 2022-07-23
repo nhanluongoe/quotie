@@ -20,6 +20,7 @@ public class HomeController {
   @GetMapping(value = "/")
   public String home(Model model) {
     model.addAttribute("quotes", quoteService.getAllQuotes());
+    model.addAttribute("popular_quotes", quoteService.getPopularQuotes());
     return "home/home";
   }
 }

@@ -26,4 +26,8 @@ public class QuoteService {
   public List<Quote> getQuotesByTagId(Long tag_id) {
     return quoteRepository.findAllByTag(tag_id);
   }
+
+  public List<Quote> getPopularQuotes() {
+    return quoteRepository.findTopUpvoteQuotes();
+  }
 }
