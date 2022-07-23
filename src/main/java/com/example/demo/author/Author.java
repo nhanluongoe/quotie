@@ -25,10 +25,10 @@ public class Author {
   private String name;
 
   @Column(name = "day_of_birth")
-  private java.sql.Date dob;
+  private String dob;
 
   @Column(name = "day_of_death")
-  private java.sql.Date dod;
+  private String dod;
 
   @Column(name = "biography", columnDefinition = "TEXT")
   private String biography;
@@ -60,19 +60,19 @@ public class Author {
     this.quotes = quotes;
   }
 
-  public java.sql.Date getDob() {
+  public String getDob() {
     return dob;
   }
 
-  public void setDob(java.sql.Date dob) {
+  public void setDob(String dob) {
     this.dob = dob;
   }
 
-  public java.sql.Date getDod() {
+  public String getDod() {
     return dod;
   }
 
-  public void setDod(java.sql.Date dod) {
+  public void setDod(String dod) {
     this.dod = dod;
   }
 
