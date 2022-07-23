@@ -12,8 +12,8 @@
       <tr th:each="author : ${authors}">
         <td><span th:text="${author.id}">Id</span></td>
         <td><span th:text="${author.name}">Name</span></td>
-        <td><a th:href="@{/admin/author/edit?id={id}(id = ${author.id})}">Edit</a></td>
-        <td><a th:href="@{/admin/author/delete?id={id}(id = ${author.id})}">Delete</a></td>
+        <td><a th:href="@{/admin/author/edit/{id}(id = ${author.id})}">Edit</a></td>
+        <td><a th:href="@{/admin/author/delete/{id}(id = ${author.id})}">Delete</a></td>
       </tr>
     </tbody>
   </table>
