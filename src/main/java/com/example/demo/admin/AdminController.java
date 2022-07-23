@@ -48,7 +48,6 @@ public class AdminController {
    */
   public String addAuthorFormSubmit(@Valid Author author, BindingResult result, Model model) {
     if (result.hasErrors()) {
-      System.out.println("VALIDATION ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
       return "admin/author-add_admin";
     }
 
