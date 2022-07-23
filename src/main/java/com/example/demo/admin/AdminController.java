@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.author.Author;
@@ -33,6 +35,13 @@ public class AdminController {
   @GetMapping("/author/add")
   public String addAuthorForm(Model model) {
     model.addAttribute("author", new Author());
+    return "admin/author-add_admin";
+  }
+
+  @PostMapping("/author/add")
+  public String addAuthorFormSubmit(@ModelAttribute Author author, Model model) {
+    Author newAuthor = authorService.addAuthor(author);
+    model.addAttribute("author", newAuthor);
     return "admin/author-add_admin";
   }
 }

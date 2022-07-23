@@ -29,4 +29,8 @@ public class AuthorService {
   public List<Author> getFirstAuthorsByFirstNameLetter(Character letter, Integer limit) {
     return authorRepository.findFirstAuthorsByFirstLetterName(letter, limit);
   }
+
+  public Author addAuthor(Author author) {
+    return authorRepository.save(author);
+  }
 }
