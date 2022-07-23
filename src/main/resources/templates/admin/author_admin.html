@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Admin Panel - Author</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+  <h2>Admin Dashboard - Author</h2>
+  <section>
+    <a href="/admin/author/add">Add</a>
+  </section>
+  <div th:replace="author/author-table_admin :: author-table(${authors})" />
+</body>
+
+</html>
