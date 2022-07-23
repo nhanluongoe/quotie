@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import com.example.demo.quote.Quote;
 
@@ -22,6 +23,7 @@ public class Author {
   private Long id;
 
   @Column(name = "name")
+  @NotEmpty(message = "Name cannot be empty")
   private String name;
 
   @Column(name = "day_of_birth")
