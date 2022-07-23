@@ -1,10 +1,12 @@
 package com.example.demo.admin;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -39,9 +41,23 @@ public class AdminController {
   }
 
   @PostMapping("/author/add")
-  public String addAuthorFormSubmit(@ModelAttribute Author author, Model model) {
-    Author newAuthor = authorService.addAuthor(author);
-    model.addAttribute("author", newAuthor);
-    return "admin/author-add_admin";
+  /**
+   * The BindingResult must come right after the model object
+   * that is validated or else Spring will fail to validate
+   * the object and throw an exception.
+   */
+  public String addAuthorFormSubmit(@Valid Author author, BindingResult result, Model model) {
+    if (result.hasErrors()) {
+      System.out.println("VALIDATION ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+      return "admin/author-add_admin";
+    }
+
+    try {
+      Author newAuthor = authorService.addAuthor(author);
+      model.addAttribute("author", newAuthor);
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
+    return "redirect:/admin/author";
   }
 }
