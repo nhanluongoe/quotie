@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -54,6 +55,26 @@ public class AdminController {
     try {
       Author newAuthor = authorService.addAuthor(author);
       model.addAttribute("author", newAuthor);
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
+    return "redirect:/admin/author";
+  }
+
+  @GetMapping(value = "/author/edit/{id}")
+  public String editAuthorForm(@PathVariable("id") Long id, Model model) {
+    model.addAttribute("author", authorService.getAuthorById(id));
+    return "admin/author-update_admin";
+  }
+
+  @PostMapping(value = "/author/edit")
+  public String editAuthorFormSubmit(@Valid Author author, BindingResult result, Model model) {
+    if (result.hasErrors()) {
+      return "admin/author-update_admin";
+    }
+
+    try {
+      authorService.updateAuthor(author);
     } catch (Exception e) {
       // TODO: handle exception
     }
