@@ -33,6 +33,9 @@ public class AdminController {
     return "admin/admin";
   }
 
+/*
+ * Author module
+ */
   @GetMapping("/author")
   public String authorPage(Model model) {
     model.addAttribute("authors", authorService.getAllAuthors());
@@ -81,6 +84,9 @@ public class AdminController {
     return "redirect:/admin/author";
   }
 
+/*
+ * Quote module
+ */
   @GetMapping(value = "/quote")
   public String quotePage(Model model) {
     model.addAttribute("quotes", quoteService.getAllQuotes());
