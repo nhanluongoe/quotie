@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Admin Panel - Quote</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+  <h2>Admin Dashboard - Quote</h2>
+  <section>
+    <a href="/admin/quote/add">Add</a>
+  </section>
+  <div th:replace="quote/quote-table_admin :: quote-table(${quotes})" />
+</body>
+
+</html>

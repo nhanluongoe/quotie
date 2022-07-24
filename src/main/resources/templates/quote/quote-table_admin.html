@@ -1,0 +1,22 @@
+<div th:fragment="quote-table(quotes)">
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Content</th>
+        <th>Author</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="quote : ${quotes}">
+        <td><span th:text="${quote.id}">Id</span></td>
+        <td><span th:text="${quote.content}">Name</span></td>
+        <td><span th:text="${quote.author.name}">Author</span></td>
+        <td><a th:href="@{/admin/quote/edit/{id}(id = ${quote.id})}">Edit</a></td>
+        <td><a th:href="@{/admin/quote/delete/{id}(id = ${quote.id})}">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
