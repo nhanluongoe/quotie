@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.author.Author;
 import com.example.demo.author.AuthorService;
+import com.example.demo.quote.Quote;
 import com.example.demo.quote.QuoteService;
 
 @Controller
@@ -84,5 +85,28 @@ public class AdminController {
   public String quotePage(Model model) {
     model.addAttribute("quotes", quoteService.getAllQuotes());
     return "admin/quote/quote_admin";
+  }
+
+  @GetMapping(value = "/quote/save")
+  public String saveQuoteForm(Model model) {
+    Quote newQuote = new Quote();
+    model.addAttribute("quote", newQuote);
+    model.addAttribute("authors", authorService.getAllAuthors());
+    return "admin/quote/quote-save_admin";
+  }
+
+  @PostMapping(value = "/quote/save")
+  public String saveQuoteFormSubmit(Quote quote, BindingResult result, Model model) {
+    if (result.hasErrors()) {
+      model.addAttribute("authors", authorService.getAllAuthors());
+      return "admin/quote/quote-save_admin";
+    }
+
+    try {
+      quoteService.saveQuote(quote);
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
+    return "redirect:/admin/quote";
   }
 }

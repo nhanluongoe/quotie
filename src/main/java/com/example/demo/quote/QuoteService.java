@@ -30,4 +30,8 @@ public class QuoteService {
   public List<Quote> getPopularQuotes() {
     return quoteRepository.findTopUpvoteQuotes();
   }
+
+  public Quote saveQuote(Quote newQuote) {
+    return quoteRepository.save(newQuote);
+  }
 }
