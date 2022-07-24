@@ -33,9 +33,9 @@ public class AdminController {
     return "admin/admin";
   }
 
-/*
- * Author module
- */
+  /*
+   * Author module
+   */
   @GetMapping("/author")
   public String authorPage(Model model) {
     model.addAttribute("authors", authorService.getAllAuthors());
@@ -84,9 +84,9 @@ public class AdminController {
     return "redirect:/admin/author";
   }
 
-/*
- * Quote module
- */
+  /*
+   * Quote module
+   */
   @GetMapping(value = "/quote")
   public String quotePage(Model model) {
     model.addAttribute("quotes", quoteService.getAllQuotes());
@@ -114,5 +114,12 @@ public class AdminController {
       // TODO: handle exception
     }
     return "redirect:/admin/quote";
+  }
+
+  @GetMapping(value = "/quote/edit/{id}")
+  public String editQuoteForm(Model model, @PathVariable("id") Long id) {
+    model.addAttribute("quote", quoteService.getQuoteById(id));
+    model.addAttribute("authors", authorService.getAllAuthors());
+    return "admin/quote/quote-save_admin";
   }
 }
