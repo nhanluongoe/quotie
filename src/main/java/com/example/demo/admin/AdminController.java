@@ -13,15 +13,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.author.Author;
 import com.example.demo.author.AuthorService;
+import com.example.demo.quote.QuoteService;
 
 @Controller
 @RequestMapping(path = "/admin")
 public class AdminController {
   private AuthorService authorService;
+  private QuoteService quoteService;
 
   @Autowired
-  public AdminController(AuthorService authorService) {
+  public AdminController(AuthorService authorService, QuoteService quoteService) {
     this.authorService = authorService;
+    this.quoteService = quoteService;
   }
 
   @GetMapping
@@ -75,5 +78,11 @@ public class AdminController {
       // TODO: handle exception
     }
     return "redirect:/admin/author";
+  }
+
+  @GetMapping(value = "/quote")
+  public String quotePage(Model model) {
+    model.addAttribute("quotes", quoteService.getAllQuotes());
+    return "admin/quote/quote_admin";
   }
 }
