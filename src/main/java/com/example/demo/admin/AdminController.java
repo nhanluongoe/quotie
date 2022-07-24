@@ -66,4 +66,14 @@ public class AdminController {
     model.addAttribute("author", authorService.getAuthorById(id));
     return "admin/author-update_admin";
   }
+
+  @GetMapping(value = "/author/delete/{id}")
+  public String deleteAuthor(@PathVariable("id") Long id) {
+    try {
+      authorService.deleteAuthorById(id);
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
+    return "redirect:/admin/author";
+  }
 }
