@@ -96,7 +96,7 @@ public class AdminController {
   }
 
   @PostMapping(value = "/quote/save")
-  public String saveQuoteFormSubmit(Quote quote, BindingResult result, Model model) {
+  public String saveQuoteFormSubmit(@Valid Quote quote, BindingResult result, Model model) {
     if (result.hasErrors()) {
       model.addAttribute("authors", authorService.getAllAuthors());
       return "admin/quote/quote-save_admin";

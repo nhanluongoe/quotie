@@ -12,6 +12,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import com.example.demo.author.Author;
 import com.example.demo.tag.Tag;
@@ -25,6 +26,7 @@ public class Quote {
   private Long id;
 
   @Column(name = "content")
+  @NotBlank(message = "Quote cannot be empty!")
   private String content;
 
   @Column(name = "up_votes")
