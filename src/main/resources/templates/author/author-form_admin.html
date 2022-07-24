@@ -1,5 +1,5 @@
-<div th:fragment="author-form(author, url)">
-  <form action="#" th:action="@{${url}}" th:object="${author}" method="post">
+<div th:fragment="author-form(author)">
+  <form action="#" th:action="@{/admin/author/save}" th:object="${author}" method="post">
     <div>
       <input type="hidden" id="id" name="id" th:field="*{id}" />
     </div>

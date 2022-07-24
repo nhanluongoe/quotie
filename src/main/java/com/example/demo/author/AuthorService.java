@@ -30,16 +30,7 @@ public class AuthorService {
     return authorRepository.findFirstAuthorsByFirstLetterName(letter, limit);
   }
 
-  public Author addAuthor(Author author) {
+  public Author saveAuthor(Author author) {
     return authorRepository.save(author);
-  }
-
-  public void updateAuthor(Author newAuthor) {
-    Long id = newAuthor.getId();
-    String newName = newAuthor.getName();
-    String newDob = newAuthor.getDob();
-    String newDod = newAuthor.getDod();
-    String newBiography = newAuthor.getBiography();
-    authorRepository.updateAuthorById(newName, newDob, newDod, newBiography, id);
   }
 }

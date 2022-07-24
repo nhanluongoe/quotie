@@ -41,7 +41,7 @@ public class AdminController {
     return "admin/author-add_admin";
   }
 
-  @PostMapping("/author/add")
+  @PostMapping("/author/save")
   /**
    * The BindingResult must come right after the model object
    * that is validated or else Spring will fail to validate
@@ -53,7 +53,7 @@ public class AdminController {
     }
 
     try {
-      Author newAuthor = authorService.addAuthor(author);
+      Author newAuthor = authorService.saveAuthor(author);
       model.addAttribute("author", newAuthor);
     } catch (Exception e) {
       // TODO: handle exception
@@ -65,19 +65,5 @@ public class AdminController {
   public String editAuthorForm(@PathVariable("id") Long id, Model model) {
     model.addAttribute("author", authorService.getAuthorById(id));
     return "admin/author-update_admin";
-  }
-
-  @PostMapping(value = "/author/edit")
-  public String editAuthorFormSubmit(@Valid Author author, BindingResult result, Model model) {
-    if (result.hasErrors()) {
-      return "admin/author-update_admin";
-    }
-
-    try {
-      authorService.updateAuthor(author);
-    } catch (Exception e) {
-      // TODO: handle exception
-    }
-    return "redirect:/admin/author";
   }
 }
