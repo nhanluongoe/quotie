@@ -39,13 +39,13 @@ public class AdminController {
   @GetMapping("/author")
   public String authorPage(Model model) {
     model.addAttribute("authors", authorService.getAllAuthors());
-    return "admin/author_admin";
+    return "admin/author/author_admin";
   }
 
   @GetMapping("/author/add")
   public String addAuthorForm(Model model) {
     model.addAttribute("author", new Author());
-    return "admin/author-add_admin";
+    return "admin/author/author-add_admin";
   }
 
   @PostMapping("/author/save")
@@ -56,7 +56,7 @@ public class AdminController {
    */
   public String addAuthorFormSubmit(@Valid Author author, BindingResult result, Model model) {
     if (result.hasErrors()) {
-      return "admin/author-add_admin";
+      return "admin/author/author-add_admin";
     }
 
     try {
@@ -71,7 +71,7 @@ public class AdminController {
   @GetMapping(value = "/author/edit/{id}")
   public String editAuthorForm(@PathVariable("id") Long id, Model model) {
     model.addAttribute("author", authorService.getAuthorById(id));
-    return "admin/author-update_admin";
+    return "admin/author/author-update_admin";
   }
 
   @GetMapping(value = "/author/delete/{id}")
