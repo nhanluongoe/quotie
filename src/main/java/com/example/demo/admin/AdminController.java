@@ -122,4 +122,14 @@ public class AdminController {
     model.addAttribute("authors", authorService.getAllAuthors());
     return "admin/quote/quote-save_admin";
   }
+
+  @GetMapping(value = "/quote/delete/{id}")
+  public String deleteQuote(@PathVariable("id") Long id) {
+    try {
+      quoteService.deleteQuoteById(id);
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
+    return "redirect:/admin/quote";
+  }
 }

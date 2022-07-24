@@ -34,4 +34,8 @@ public class QuoteService {
   public Quote saveQuote(Quote newQuote) {
     return quoteRepository.save(newQuote);
   }
+
+  public void deleteQuoteById(Long id) {
+    quoteRepository.deleteById(id);
+  }
 }
