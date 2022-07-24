@@ -7,11 +7,8 @@
 </head>
 
 <body>
-  <h2>Admin Dashboard - Quote</h2>
-  <section>
-    <a href="/admin/quote/save">Add</a>
-  </section>
-  <div th:replace="quote/quote-table_admin :: quote-table(${quotes})" />
+  <h2>Admin Dashboard - save Author</h2>
+  <div th:replace="admin/quote/quote-form_admin :: quote-form(${quote})" />
 </body>
 
 </html>
