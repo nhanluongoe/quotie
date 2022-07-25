@@ -22,4 +22,7 @@ public interface QuoteRepository extends JpaRepository<Quote, Long> {
   @Modifying
   @Query(value = "UPDATE quote SET up_votes = up_votes + 1 WHERE id = ?1", nativeQuery = true)
   public void upVote(Long id);
+
+  @Query(value = "SELECT * FROM quote ORDER BY RANDOM() LIMIT 1", nativeQuery = true)
+  public Quote findRandom();
 }

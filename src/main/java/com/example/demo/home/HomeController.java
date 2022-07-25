@@ -21,6 +21,7 @@ public class HomeController {
   public String home(Model model) {
     model.addAttribute("quotes", quoteService.getAllQuotes());
     model.addAttribute("popular_quotes", quoteService.getPopularQuotes());
+    model.addAttribute("random_quote", quoteService.getRandomQuote());
     return "home/home";
   }
 }

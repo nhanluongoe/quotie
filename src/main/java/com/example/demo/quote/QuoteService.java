@@ -42,4 +42,8 @@ public class QuoteService {
   public void upVoteQuote(Long id) {
     quoteRepository.upVote(id);
   }
+
+  public Quote getRandomQuote() {
+    return quoteRepository.findRandom();
+  }
 }
