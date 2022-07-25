@@ -48,10 +48,28 @@ a {
 /* Block quotes */
 blockquote {
   margin: 0;
+  display: flex;
+}
+
+blockquote section {
+  margin-top: 16px;
+  margin-right: 10px;
+}
+
+blockquote section button {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+blockquote section button:hover {
+  background-color: rgb(223, 217, 217);
 }
 
 blockquote p {
   padding: 15px;
+  /* margin: 0px; */
   background: #eee;
   border-radius: 5px;
 }

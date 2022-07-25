@@ -1,6 +1,9 @@
 <div th:fragment="quote-block(quote)">
   <figure>
     <blockquote>
+      <section>
+        <button><i>♡</i><span> [[${quote.upVotes}]]</span></button>
+      </section>
       <p>[[${quote.content}]]</p>
     </blockquote>
     <figcaption>—[[${quote.author.name}]]</figcaption>
