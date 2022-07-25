@@ -38,4 +38,8 @@ public class QuoteService {
   public void deleteQuoteById(Long id) {
     quoteRepository.deleteById(id);
   }
+
+  public void upVoteQuote(Long id) {
+    quoteRepository.upVote(id);
+  }
 }
