@@ -74,4 +74,20 @@ public class Quote {
   public void setTags(List<Tag> tags) {
     this.tags = tags;
   }
+
+  public Long getUpVotes() {
+    return upVotes;
+  }
+
+  public void setUpVotes(Long upVotes) {
+    this.upVotes = upVotes;
+  }
+
+  public Long getDownVotes() {
+    return downVotes;
+  }
+
+  public void setDownVotes(Long downVotes) {
+    this.downVotes = downVotes;
+  }
 }
