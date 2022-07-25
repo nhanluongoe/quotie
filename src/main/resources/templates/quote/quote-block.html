@@ -2,7 +2,10 @@
   <figure>
     <blockquote>
       <section>
-        <button><i>♡</i><span> [[${quote.upVotes}]]</span></button>
+        <form action="#" th:action="@{/quote/upvote/{id}(id = ${quote.id})}" th:method="post">
+          <button type="submit"><i>♡</i><span>
+              [[${quote.upVotes}]]</span></button>
+        </form>
       </section>
       <p>[[${quote.content}]]</p>
     </blockquote>
