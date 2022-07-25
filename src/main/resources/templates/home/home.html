@@ -17,6 +17,10 @@
 <body>
   <div id="home-header" th:replace="fragments/header :: header" />
   <div id="home-main-content">
+    <section class="random-quote">
+      <p>[[${random_quote.content}]]</p>
+      <p><a th:href="@{/author/{id}(id=${random_quote.author.id})}">[[${random_quote.author.name}]]</a></p>
+    </section>
     <section>
       <h2>Popular Quotes</h2>
       <div th:replace="quote/quote-grid :: quote-grid(${popular_quotes})" />
