@@ -27,8 +27,14 @@ ul li {
   margin-bottom: 10px;
 }
 
-a {
+a,
+a:visited {
   text-decoration: none;
+  color: rgb(126, 126, 126);
+}
+
+a:hover {
+  color: rgb(173, 171, 171);
 }
 
 .nav-active {
