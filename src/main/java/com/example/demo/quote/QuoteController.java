@@ -2,6 +2,8 @@ package com.example.demo.quote;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,8 +31,9 @@ public class QuoteController {
   }
 
   @PostMapping(value = "/upvote/{id}")
-  public String upVote(@PathVariable("id") Long id) {
+  public String upVote(@PathVariable("id") Long id, HttpServletRequest request) {
+    String currentUrl = request.getParameter("url");
     quoteService.upVoteQuote(id);
-    return "redirect:/";
+    return "redirect:" + currentUrl;
   }
 }
