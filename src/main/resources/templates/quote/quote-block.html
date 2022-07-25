@@ -10,6 +10,6 @@
       </section>
       <p>[[${quote.content}]]</p>
     </blockquote>
-    <figcaption>—[[${quote.author.name}]]</figcaption>
+    <figcaption><a th:href="@{/author/{id}(id=${quote.author.id})}">—[[${quote.author.name}]]</a></figcaption>
   </figure>
 </div>
