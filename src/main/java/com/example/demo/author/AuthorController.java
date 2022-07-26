@@ -1,9 +1,9 @@
 package com.example.demo.author;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -58,12 +58,14 @@ public class AuthorController {
     model.addAttribute("author", author);
 
     Pageable pagination = PageRequest.of(page, 9);
-    Page<Quote> quotesOfAuthorPage = quoteService.getQuotesByAuthor(author, pagination);
-    Map<String, Object> quotesPagination = new HashMap<>();
-    quotesPagination.put("quotes", quotesOfAuthorPage.getContent());
-    quotesPagination.put("currentPage", quotesOfAuthorPage.getNumber());
-    quotesPagination.put("totalPages", quotesOfAuthorPage.getTotalPages());
-    model.addAttribute("quotesPagination", quotesPagination);
+    Page<Quote> quotesPage = quoteService.getQuotesByAuthor(author, pagination);
+    model.addAttribute("quotesPage", quotesPage);
+
+    int totalPages = quotesPage.getTotalPages();
+    if (totalPages > 0) {
+      List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().collect(Collectors.toList());
+      model.addAttribute("pageNumbers", pageNumbers);
+    }
 
     return "author/author-detail";
   }
