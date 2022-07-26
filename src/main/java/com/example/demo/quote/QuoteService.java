@@ -54,4 +54,8 @@ public class QuoteService {
   public Page<Quote> getQuotesByAuthor(Author author, Pageable pageable) {
     return quoteRepository.findByAuthorOrderByIdAsc(author, pageable);
   }
+
+  public Page<Quote> getQuotesByQuery(String query, Pageable pageable) {
+    return quoteRepository.findByQuery(query, pageable);
+  }
 }
