@@ -8,21 +8,21 @@
   min-height: 90vh;
 }
 
-.header > ul {
-  display: flex;
-}
-
-.header > ul li {
-  list-style: none;
-  margin-right: 1rem;
-}
-
 ul li {
   list-style: none;
 }
 
 /* Nav bar */
-.header {
+.navbar > ul {
+  display: flex;
+}
+
+.navbar > ul li {
+  list-style: none;
+  margin-right: 1rem;
+}
+
+.navbar {
   border-bottom: 1px solid rgb(223, 217, 217);
   margin-bottom: 10px;
 }

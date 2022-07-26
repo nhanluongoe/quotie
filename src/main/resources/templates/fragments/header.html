@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
-<body>
-  <nav class="header" th:fragment="header">
+<div>
+  <nav class="navbar" th:fragment="header">
     <ul>
       <li th:classappend="${#request.requestURI == '/' ? 'nav-active':''}"><a href="/" th:ref="@{/}">Home</a></li>
       <li th:classappend="${#request.requestURI.startsWith('/author') ? 'nav-active' : ''}"><a href="/author"
@@ -12,6 +9,4 @@
       </li>
     </ul>
   </nav>
-</body>
-
-</html>
+</div>
