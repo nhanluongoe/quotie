@@ -30,10 +30,10 @@ public class Quote {
   private String content;
 
   @Column(name = "up_votes")
-  private Long upVotes;
+  private Long upVotes = 0l;
 
   @Column(name = "down_votes")
-  private Long downVotes;
+  private Long downVotes = 0l;
 
   @ManyToOne
   @JoinColumn(name = "author_id")
