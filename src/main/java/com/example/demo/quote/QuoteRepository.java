@@ -30,5 +30,5 @@ public interface QuoteRepository extends JpaRepository<Quote, Long> {
   @Query(value = "SELECT * FROM quote ORDER BY RANDOM() LIMIT 1", nativeQuery = true)
   public Quote findRandom();
 
-  public Page<Quote> findByAuthor(Author author, Pageable pageable);
+  public Page<Quote> findByAuthorOrderByIdAsc(Author author, Pageable pageable);
 }
