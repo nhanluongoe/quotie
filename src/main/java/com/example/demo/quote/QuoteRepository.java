@@ -19,7 +19,7 @@ public interface QuoteRepository extends JpaRepository<Quote, Long> {
   @Query(value = "SELECT * FROM quote q INNER JOIN quote_tag qt on q.id = qt.quote_id WHERE qt.tag_id = ?1", nativeQuery = true)
   public List<Quote> findAllByTag(Long tag_id);
 
-  @Query(value = "SELECT * FROM quote q ORDER BY q.up_votes DESC LIMIT 8", nativeQuery = true)
+  @Query(value = "SELECT * FROM quote q ORDER BY q.up_votes DESC LIMIT 9", nativeQuery = true)
   public List<Quote> findTopUpvoteQuotes();
 
   @Transactional
