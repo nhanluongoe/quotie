@@ -25,7 +25,18 @@
     </section>
     <section>
       <h3>Quotes</h3>
-      <div th:replace="quote/quote-grid :: quote-grid(${author.quotes})" />
+      <div th:replace="quote/quote-grid :: quote-grid(${quotesPage.content})" />
+
+      <div class="pagination">
+        <a th:href="@{/author/{authorId}?page={page}(authorId=${author.id}, page=${quotesPage.number - 1})}"
+          th:class="${quotesPage.number == 0} ? a-disabled">&laquo; previous</a>
+        <div th:if="${quotesPage.totalPages > 0}" th:each="pageNumber : ${pageNumbers}">
+          <a th:href="@{/author/{authorId}?page={page}(authorId=${author.id}, page=${pageNumber - 1})}"
+            th:text="${pageNumber}" th:class="${pageNumber==quotesPage.number + 1} ? active"></a>
+        </div>
+        <a th:href="@{/author/{authorId}?page={page}(authorId=${author.id}, page=${quotesPage.number + 1})}"
+          th:class="${quotesPage.number == quotesPage.totalPages - 1} ? a-disabled">next &raquo;</a>
+      </div>
     </section>
   </div>
 </body>
