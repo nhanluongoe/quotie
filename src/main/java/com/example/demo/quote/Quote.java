@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -18,7 +19,7 @@ import com.example.demo.author.Author;
 import com.example.demo.tag.Tag;
 
 @Entity
-@Table(name = "quote")
+@Table(name = "quote", indexes = @Index(name = "content_index", columnList = "content"))
 public class Quote {
 
   @Id
