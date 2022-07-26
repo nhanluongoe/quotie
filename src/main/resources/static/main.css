@@ -30,11 +30,12 @@ ul li {
 a,
 a:visited {
   text-decoration: none;
-  color: rgb(126, 126, 126);
+  color: #4b8e5a;
 }
 
 a:hover {
-  color: rgb(173, 171, 171);
+  color: #4b8e5a;
+  text-decoration: underline;
 }
 
 .nav-active {
@@ -87,4 +88,35 @@ blockquote p::before {
 
 blockquote p::after {
   content: "\201D";
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 20px;
+  font-size: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pagination a {
+  float: left;
+  padding: 4px 8px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.pagination a.active {
+  background-color: #63b175;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.a-disabled {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: black !important;
 }
