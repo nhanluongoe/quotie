@@ -3,7 +3,11 @@ package com.example.demo.quote;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import com.example.demo.author.Author;
 
 @Service
 public class QuoteService {
@@ -45,5 +49,9 @@ public class QuoteService {
 
   public Quote getRandomQuote() {
     return quoteRepository.findRandom();
+  }
+
+  public Page<Quote> getQuotesByAuthor(Author author, Pageable pageable) {
+    return quoteRepository.findByAuthor(author, pageable);
   }
 }
