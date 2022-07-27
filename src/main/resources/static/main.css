@@ -12,6 +12,15 @@ ul li {
   list-style: none;
 }
 
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(223, 217, 217);
+  margin-bottom: 10px;
+}
+
 /* Nav bar */
 .navbar > ul {
   display: flex;
@@ -20,11 +29,6 @@ ul li {
 .navbar > ul li {
   list-style: none;
   margin-right: 1rem;
-}
-
-.navbar {
-  border-bottom: 1px solid rgb(223, 217, 217);
-  margin-bottom: 10px;
 }
 
 a,
@@ -88,6 +92,11 @@ blockquote p::before {
 
 blockquote p::after {
   content: "\201D";
+}
+
+.quote-container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
 }
 
 /* Pagination */
