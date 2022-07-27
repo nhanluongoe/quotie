@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
 /* General */
 * {
   box-sizing: border-box;
+  font-family: "Lato", sans-serif;
 }
 
 .page-container {
@@ -50,6 +53,20 @@ input:focus {
 }
 
 /* Nav bar */
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo {
+  font-size: 36px;
+  font-family: "Lato", sans-serif;
+}
+
+.navbar .logo a {
+  text-decoration: none;
+}
+
 .navbar > ul {
   display: flex;
 }
