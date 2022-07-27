@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(path = "/quote")
@@ -31,9 +32,11 @@ public class QuoteController {
   }
 
   @PostMapping(value = "/upvote/{id}")
-  public String upVote(@PathVariable("id") Long id, HttpServletRequest request) {
+  public String upVote(@PathVariable("id") Long id, HttpServletRequest request,
+      @RequestParam(value = "page", defaultValue = "0") Integer page,
+      @RequestParam("query") String query) {
     String currentUrl = request.getParameter("url");
     quoteService.upVoteQuote(id);
-    return "redirect:" + currentUrl;
+    return "redirect:" + currentUrl + "?page=" + page + "&" + "query=" + query;
   }
 }

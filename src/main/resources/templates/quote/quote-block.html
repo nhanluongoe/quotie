@@ -2,7 +2,9 @@
   <figure>
     <blockquote>
       <section>
-        <form action="#" th:action="@{/quote/upvote/{id}(id = ${quote.id})}" th:method="post">
+        <form action="#"
+          th:action="@{/quote/upvote/{id}(id = ${quote.id}, page = ${param.page}, query = ${param.query})}"
+          th:method="post">
           <input type="hidden" id="url" name="url" th:value="${#httpServletRequest.requestURI}">
           <button type="submit"><i>♡</i><span>
               [[${quote.upVotes}]]</span></button>

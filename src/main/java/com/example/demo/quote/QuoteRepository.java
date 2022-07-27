@@ -32,7 +32,7 @@ public interface QuoteRepository extends JpaRepository<Quote, Long> {
 
   public Page<Quote> findByAuthorOrderByIdAsc(Author author, Pageable pageable);
 
-  @Query(value = "SELECT * FROM quote WHERE TO_TSVECTOR(content) @@ TO_TSQUERY(?1)", nativeQuery = true)
+  @Query(value = "SELECT * FROM quote WHERE TO_TSVECTOR(content) @@ TO_TSQUERY(?1) ORDER BY id", nativeQuery = true)
   public Page<Quote> findByQuery(String query, Pageable pageable);
 
 }
