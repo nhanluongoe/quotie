@@ -78,12 +78,28 @@ input:focus {
 }
 
 .navbar > ul {
-  display: flex;
+  margin: 0;
 }
 
 .navbar > ul li {
+  display: inline-block;
   list-style: none;
-  margin-right: 1rem;
+}
+
+.navbar > ul li a:hover {
+  background-color: #4b8e5a;
+  color: white !important;
+  cursor: pointer;
+}
+
+.navbar > ul li a {
+  line-height: 50px;
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+.navbar > ul li a:hover {
+  text-decoration: none;
 }
 
 a,
