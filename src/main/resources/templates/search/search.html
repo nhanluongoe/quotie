@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/main-layout :: main-fragment(  
+  ~{::title},
+  ~{:: #search-static-resources},
+  ~{:: #search-header},
+  ~{:: #search-main-content},  
+  ~{:: #search-footer}
+  )}">
+
+<head>
+  <title>Search Result</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+  <div id="search-header" th:replace="fragments/header :: header" />
+  <div id="search-main-content">
+    <section>
+      <h3>Search</h3>
+      <div th:replace="quote/quote-grid :: quote-grid(${quotesPage.content})" />
+
+      <div class="pagination" th:if="${quotesPage.totalPages > 1}">
+        <a th:href="@{/search?query={query}&page={page}(query=${param.query}, page=${quotesPage.number - 1})}"
+          th:class="${quotesPage.number == 0} ? a-disabled">&laquo; previous</a>
+        <div th:each="pageNumber : ${pageNumbers}">
+          <a th:href="@{/search?query={query}&page={page}(query=${param.query}, page=${pageNumber - 1})}"
+            th:text="${pageNumber}" th:class="${pageNumber==quotesPage.number + 1} ? active"></a>
+        </div>
+        <a th:href="@{/search?query={query}&page={page}(query=${param.query}, page=${quotesPage.number + 1})}"
+          th:class="${quotesPage.number == quotesPage.totalPages - 1} ? a-disabled">next &raquo;</a>
+      </div>
+    </section>
+  </div>
+  <div id="search-footer" th:replace="fragments/footer :: footer" />
+</body>
+
+</html>
