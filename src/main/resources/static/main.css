@@ -6,6 +6,10 @@
   font-family: "Lato", sans-serif;
 }
 
+body {
+  margin: 0;
+}
+
 .page-container {
   max-width: 1320px;
   margin: auto;
@@ -24,12 +28,18 @@ ul li {
 }
 
 /* Header */
+.header-container {
+  border-bottom: 1px solid rgb(223, 217, 217);
+  margin-bottom: 10px;
+  background-color: #f5f1ea;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgb(223, 217, 217);
-  margin-bottom: 10px;
+  max-width: 1320px;
+  margin: auto;
 }
 
 .header .search-box button {
@@ -92,13 +102,18 @@ a:hover {
 }
 
 /* Footer */
+.footer-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 15px;
+  border-top: 1px solid rgb(223, 217, 217);
+  background-color: #f9f8f5;
+}
+
 .footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
-  padding-top: 15px;
-  border-top: 1px solid rgb(223, 217, 217);
 }
 
 /* Why not updated? */

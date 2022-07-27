@@ -13,18 +13,24 @@
 </head>
 
 <body>
-  <div class="page-container">
-    <header th:insert="${header} ?: ~{}">
-      header
-    </header>
-    <section class="body">
-      <article th:insert="${mainContent} ?: ~{}">
-        page content
-      </article>
-    </section>
-    <footer th:insert="${footer} ?: ~{}">
-      footer
-    </footer>
+  <div>
+    <div class="header-container">
+      <header th:insert="${header} ?: ~{}">
+        header
+      </header>
+    </div>
+    <div class="page-container">
+      <section class="body">
+        <article th:insert="${mainContent} ?: ~{}">
+          page content
+        </article>
+      </section>
+    </div>
+    <div class="footer-container">
+      <footer th:insert="${footer} ?: ~{}">
+        footer
+      </footer>
+    </div>
   </div>
 </body>
 
