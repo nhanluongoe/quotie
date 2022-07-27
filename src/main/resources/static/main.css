@@ -1,4 +1,8 @@
 /* General */
+* {
+  box-sizing: border-box;
+}
+
 .page-container {
   max-width: 1320px;
   margin: auto;
@@ -23,6 +27,21 @@ ul li {
   align-items: center;
   border-bottom: 1px solid rgb(223, 217, 217);
   margin-bottom: 10px;
+}
+
+.header .search-box button {
+  border: 0;
+  background-color: #4b8e5a;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 3px;
+}
+
+.header .search-box input,
+input:focus {
+  border: 1px solid gray;
+  padding: 3px 6px;
+  border-radius: 3px;
 }
 
 /* Nav bar */
