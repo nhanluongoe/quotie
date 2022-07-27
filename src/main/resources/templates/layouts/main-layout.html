@@ -6,6 +6,8 @@
   <meta charset="UTF-8" />
   <title th:replace="${title}">Page 1 Title</title>
   <link rel="stylesheet" type="text/css" th:href="@{/main.css}" href="../../static/main.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <!-- Other javascript, css source files -->
   <th:block th:replace="${otherStaticResources} ?: ~{}"></th:block>
 </head>
