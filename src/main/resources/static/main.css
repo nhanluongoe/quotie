@@ -35,6 +35,11 @@ ul li {
   color: white;
   padding: 4px 6px;
   border-radius: 3px;
+  cursor: pointer;
+}
+
+.header .search-box button span {
+  font-size: 12px;
 }
 
 .header .search-box input,
@@ -120,6 +125,11 @@ blockquote p::after {
 .quote-container {
   display: grid;
   grid-template-columns: 33% 33% 33%;
+}
+
+/* Material icons */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
 /* Pagination */
