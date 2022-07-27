@@ -17,8 +17,10 @@
   <div id="search-main-content">
     <section>
       <h3>Search</h3>
+      <p class="text-secondary">Page [[${quotesPage.number + 1}]] / [[${quotesPage.totalPages}]] of about
+        [[${quotesPage.numberOfElements}]]
+        results</p>
       <div th:replace="quote/quote-grid :: quote-grid(${quotesPage.content})" />
-
       <div class="pagination" th:if="${quotesPage.totalPages > 1}">
         <a th:href="@{/search?query={query}&page={page}(query=${param.query}, page=${quotesPage.number - 1})}"
           th:class="${quotesPage.number == 0} ? a-disabled">&laquo; previous</a>

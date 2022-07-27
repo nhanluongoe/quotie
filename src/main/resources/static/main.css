@@ -8,6 +8,10 @@
   min-height: 90vh;
 }
 
+.text-secondary {
+  color: rgb(125, 123, 123);
+}
+
 ul li {
   list-style: none;
 }
