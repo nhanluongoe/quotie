@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import com.example.demo.role.Role;
 
@@ -24,18 +26,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "userq") // "user" is a reserved word in PostgresQL, thus userq, q stands for Quotie
 public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @Column(name = "name")
+  @NotEmpty(message = "Name cannot be empty!")
+  private String name;
+
+  @NotEmpty(message = "Name cannot be empty!")
   @Column(name = "username")
   private String username;
 
+  @Size(min = 6, message = "Password length must be at least 6 characters!")
   @Column(name = "password")
   private String password;
+
+  @Column(name = "active")
+  private Boolean active = true;
 
   @ManyToMany(cascade = CascadeType.MERGE)
   @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
