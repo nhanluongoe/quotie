@@ -14,12 +14,20 @@
       </li>
     </ul>
   </nav>
-  <div class="search-box">
-    <form action="#" th:action="@{/search}" th:method="post">
-      <input type="text" name="query" placeholder="Search quote..." />
-      <button type="submit"><span class="material-symbols-outlined">
-          search
-        </span></button>
-    </form>
+  <div class="search-box_register">
+    <div class="search-box">
+      <form action="#" th:action="@{/search}" th:method="post">
+        <input type="text" name="query" placeholder="Search quote..." />
+        <button type="submit"><span class="material-symbols-outlined">
+            search
+          </span></button>
+      </form>
+    </div>
+    <div class="register">
+      <ul>
+        <li><a th:href="@{/login}">Login</a></li>
+        <li><a th:href="@{/register}">Register</a></li>
+      </ul>
+    </div>
   </div>
 </div>

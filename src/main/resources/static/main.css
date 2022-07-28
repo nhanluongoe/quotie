@@ -43,7 +43,7 @@ ul li {
   margin: auto;
 }
 
-.header .search-box button {
+.header .search-box_register .search-box button {
   border: 0;
   background-color: #4b8e5a;
   color: white;
@@ -54,17 +54,44 @@ ul li {
   width: 30px;
 }
 
-.header .search-box button span {
+.header .search-box_register .search-box button span {
   font-size: 12px;
 }
 
-.header .search-box input,
+.header .search-box_register .search-box input,
 input:focus {
-  border: 1px solid gray;
+  border: 1px solid rgb(195, 193, 193);
   padding: 3px 6px;
   border-radius: 3px;
   height: 30px;
   min-width: 300px;
+}
+
+.header .search-box_register {
+  display: flex;
+  align-items: center;
+}
+
+.header .search-box_register .register > ul {
+  margin: 0;
+}
+
+.header .search-box_register .register > ul li {
+  display: inline-block;
+  list-style: none;
+}
+
+.header .search-box_register .register > ul li a {
+  line-height: 50px;
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+.header .search-box_register .register > ul li a:hover {
+  background-color: #4b8e5a;
+  color: white !important;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 /* Nav bar */
@@ -95,6 +122,7 @@ input:focus {
   background-color: #4b8e5a;
   color: white !important;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .navbar > ul li a {
@@ -102,11 +130,6 @@ input:focus {
   display: inline-block;
   padding: 0 1rem;
 }
-
-.navbar > ul li a:hover {
-  text-decoration: none;
-}
-
 a,
 a:visited {
   text-decoration: none;
