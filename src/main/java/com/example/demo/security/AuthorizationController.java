@@ -1,9 +1,16 @@
 package com.example.demo.security;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.user.User;
 import com.example.demo.user.UserService;
 
 @Controller
@@ -14,6 +21,31 @@ public class AuthorizationController {
 
   @RequestMapping(value = "/login")
   public String loginPage() {
-    return "login/index";
+    return "security/login";
+  }
+
+  @GetMapping(value = "/register")
+  public String registerPage(Model model) {
+    model.addAttribute("user", new User());
+    return "security/register";
+  }
+
+  @PostMapping(value = "/register")
+  public String register(@Valid User user, BindingResult result) {
+    String username = user.getUsername();
+    User existedUser = userService.getUserByUsername(username);
+    System.out.println(existedUser);
+    if (existedUser != null) {
+      result.rejectValue("username", "error.user",
+          "There is already a user registered with the username provided");
+    }
+
+    if (result.hasErrors()) {
+      return "security/register";
+    }
+
+    userService.saveUser(user);
+
+    return "redirect:/login";
   }
 }
