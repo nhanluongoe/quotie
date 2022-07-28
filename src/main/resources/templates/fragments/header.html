@@ -25,8 +25,9 @@
     </div>
     <div class="register">
       <ul>
-        <li><a th:href="@{/login}">Login</a></li>
-        <li><a th:href="@{/register}">Register</a></li>
+        <li><a sec:authorize="!isAuthenticated()" th:href="@{/login}">Login</a></li>
+        <li><a sec:authorize="!isAuthenticated()" th:href="@{/register}">Register</a></li>
+        <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a></li>
       </ul>
     </div>
   </div>
