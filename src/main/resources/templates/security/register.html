@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/main-layout :: main-fragment(  
+  ~{::title},
+  ~{:: #static-resources},
+  ~{:: #header},
+  ~{:: #main-content},  
+  ~{:: #footer}
+  )}">
+
+<head>
+  <title>Register</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <!-- <link id="static-resources" rel="stylesheet" type="text/css" th:href="@{/home.css}"
+    href="../../static/home.css" /> -->
+</head>
+
+<body>
+  <div id="header" th:replace="fragments/header :: header" />
+  <div id="main-content">
+    <h2>Register</h2>
+    </form>
+    <form th:action="@{/register}" th:method="post" th:object="${user}">
+      <div>
+        <label for="name">Name</label>
+        <input type="name" id="name" name="name" th:field="*{name}">
+      </div>
+      <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" th:field="*{username}">
+        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="validation-message"></span>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" th:field="*{password}">
+      </div>
+      <button type="submit">Register</button>
+  </div>
+  <div id="footer" th:replace="fragments/footer :: footer" />
+</body>
+
+</html>
