@@ -1,0 +1,12 @@
+:root {
+  /* Color */
+  --green: #4b8e5a;
+
+  /* General configuration */
+  --base-radius: 5px;
+
+  /* Button */
+  --button-radius: 5px;
+  --button-padding-x-axis: 10px;
+  --button-padding-y-axis: 5px;
+}
