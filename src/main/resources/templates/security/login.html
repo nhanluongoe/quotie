@@ -22,7 +22,6 @@
       <p th:if="${param.error}">User Name or Password invalid, please verify</p>
       <p th:if="${param.required}">Please login to do the action!</p>
     </div>
-    </form>
     <form th:action="@{/login}" method="post">
       <div>
         <label for="username">Username</label>
@@ -33,6 +32,8 @@
         <input type="password" id="password" name="password">
       </div>
       <button type="submit">Login</button>
+    </form>
+    <a th:href="@{/register}">Create an account</a>
   </div>
   <div id="footer" th:replace="fragments/footer :: footer" />
 </body>

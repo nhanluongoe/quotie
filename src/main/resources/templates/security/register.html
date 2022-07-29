@@ -18,7 +18,6 @@
   <div id="header" th:replace="fragments/header :: header" />
   <div id="main-content">
     <h2>Register</h2>
-    </form>
     <form th:action="@{/register}" th:method="post" th:object="${user}">
       <div>
         <label for="name">Name</label>
@@ -34,6 +33,10 @@
         <input type="password" id="password" name="password" th:field="*{password}">
       </div>
       <button type="submit">Register</button>
+    </form>
+    <p>
+      <span>Already have an account? <a th:href="@{/login}">Login</a> </span>
+    </p>
   </div>
   <div id="footer" th:replace="fragments/footer :: footer" />
 </body>
