@@ -17,9 +17,9 @@
   <div id="header" th:replace="fragments/header :: header" />
   <div id="main-content" class="login_root">
     <h2>Login</h2>
-    <div>
-      <p th:if="${param.error}">User Name or Password invalid, please verify</p>
-      <p th:if="${param.required}">Please login to do the action!</p>
+    <div class="alert">
+      <p th:if="${param.error}" class="alert-error">Invalid username or password! Please try again</p>
+      <p th:if="${param.required}" class="alert-warning">Please login to do the action!</p>
     </div>
     <form th:action="@{/login}" method="post">
       <div class="form-field">
