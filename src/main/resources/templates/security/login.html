@@ -10,30 +10,31 @@
 <head>
   <title>Login</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <!-- <link id="static-resources" rel="stylesheet" type="text/css" th:href="@{/home.css}"
-    href="../../static/home.css" /> -->
+  <link id="static-resources" rel="stylesheet" type="text/css" th:href="@{/register.css}" />
 </head>
 
 <body>
   <div id="header" th:replace="fragments/header :: header" />
-  <div id="main-content">
+  <div id="main-content" class="login_root">
     <h2>Login</h2>
     <div>
       <p th:if="${param.error}">User Name or Password invalid, please verify</p>
       <p th:if="${param.required}">Please login to do the action!</p>
     </div>
     <form th:action="@{/login}" method="post">
-      <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username">
+      <div class="form-field">
+        <input type="text" id="username" name="username" placeholder="username">
       </div>
-      <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
+      <div class="form-field">
+        <input type="password" id="password" name="password" placeholder="password">
       </div>
-      <button type="submit">Login</button>
+      <div class="submit-button">
+        <button type="submit">Login</button>
+      </div>
     </form>
-    <a th:href="@{/register}">Create an account</a>
+    <p>
+      <a th:href="@{/register}">Create an account</a>
+    </p>
   </div>
   <div id="footer" th:replace="fragments/footer :: footer" />
 </body>
