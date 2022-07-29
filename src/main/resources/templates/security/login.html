@@ -19,7 +19,7 @@
   <div id="main-content">
     <h2>Login</h2>
     <div>
-      <p th:if="${param.error}" style="font-size: 20; color: #FF1C19;">User Name or Password invalid, please verify</p>
+      <p th:if="${param.error}">User Name or Password invalid, please verify</p>
       <p th:if="${param.required}">Please login to do the action!</p>
     </div>
     </form>
