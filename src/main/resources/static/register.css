@@ -39,3 +39,7 @@
 .login_root .alert .alert-warning {
   color: orange;
 }
+
+.login_root .alert .alert-success {
+  color: var(--green);
+}

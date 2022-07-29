@@ -20,6 +20,7 @@
     <div class="alert">
       <p th:if="${param.error}" class="alert-error">Invalid username or password! Please try again</p>
       <p th:if="${param.required}" class="alert-warning">Please login to do the action!</p>
+      <p th:if="${param.register}" class="alert-success">Register successfully! Log in to enjoy</p>
     </div>
     <form th:action="@{/login}" method="post">
       <div class="form-field">

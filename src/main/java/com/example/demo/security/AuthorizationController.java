@@ -46,6 +46,6 @@ public class AuthorizationController {
 
     userService.saveUser(user);
 
-    return "redirect:/login";
+    return "redirect:/login?register=true";
   }
 }
