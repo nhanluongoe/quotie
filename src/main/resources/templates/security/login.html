@@ -18,8 +18,9 @@
   <div id="header" th:replace="fragments/header :: header" />
   <div id="main-content">
     <h2>Login</h2>
-    <div th:if="${param.error}">
-      <p style="font-size: 20; color: #FF1C19;">User Name or Password invalid, please verify</p>
+    <div>
+      <p th:if="${param.error}" style="font-size: 20; color: #FF1C19;">User Name or Password invalid, please verify</p>
+      <p th:if="${param.required}">Please login to do the action!</p>
     </div>
     </form>
     <form th:action="@{/login}" method="post">
