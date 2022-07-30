@@ -48,4 +48,9 @@ public class AuthorizationController {
 
     return "redirect:/login?register=true";
   }
+
+  @GetMapping(value = "/access-denied")
+  public String accessDeniedPage() {
+    return "security/access-denied";
+  }
 }
