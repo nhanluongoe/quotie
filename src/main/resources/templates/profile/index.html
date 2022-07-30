@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/main-layout :: main-fragment(  
+  ~{::title},
+  ~{:: #static-resources},
+  ~{:: #header},
+  ~{:: #main-content},  
+  ~{:: #footer}
+  )}">
+
+<head>
+  <title>Profile</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <!-- <link id="home-static-resources" rel="stylesheet" type="text/css" th:href="@{/home.css}"
+    href="../../static/home.css" /> -->
+</head>
+
+<body>
+  <div id="header" th:replace="fragments/header :: header" />
+  <div id="main-content">
+    <section class="information">
+      <h2 th:text="${currentUser.name}"></h2>
+    </section>
+    <section>
+      <p>[[${currentUser.name}]]'s favorite quotes</p>
+    </section>
+    <section>
+      <p>[[${currentUser.name}]]'s favorite authors</p>
+    </section>
+  </div>
+  <div id="footer" th:replace="fragments/footer :: footer" />
+</body>
+
+</html>
