@@ -38,48 +38,16 @@ public class User {
   @NotEmpty(message = "Name cannot be empty!")
   private String name;
 
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
   @NotEmpty(message = "Name cannot be empty!")
   @Column(name = "username")
   private String username;
-
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
 
   @Size(min = 6, message = "Password length must be at least 6 characters!")
   @Column(name = "password")
   private String password;
 
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
   @Column(name = "active")
   private Boolean active = true;
-
-  public Boolean getActive() {
-    return active;
-  }
-
-  public void setActive(Boolean active) {
-    this.active = active;
-  }
 
   @ManyToMany(cascade = CascadeType.MERGE)
   @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -89,7 +57,39 @@ public class User {
     return roles;
   }
 
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public Boolean getActive() {
+    return active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
   public void setRoles(Set<Role> roles) {
     this.roles = roles;
+  }
+
+  public String getName() {
+    return name;
   }
 }
