@@ -1,5 +1,7 @@
 package com.example.demo.user;
 
+import java.sql.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -26,6 +31,14 @@ public class UserDetails {
 
   @Column(name = "about_me")
   private String aboutMe;
+
+  @Column(name = "created_at")
+  @CreationTimestamp
+  private Date createdAt;
+
+  @Column(name = "updated_at")
+  @UpdateTimestamp
+  private Date updatedAt;
 
   @OneToOne(mappedBy = "userDetails", cascade = CascadeType.ALL)
   private User user;
