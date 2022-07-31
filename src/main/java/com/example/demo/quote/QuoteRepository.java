@@ -37,4 +37,6 @@ public interface QuoteRepository extends JpaRepository<Quote, Long> {
   public Page<Quote> findByQuery(String query, Pageable pageable);
 
   List<Quote> findByUserDetails(UserDetails userDetails);
+
+  public Page<Quote> findByUserDetailsOrderByIdAsc(UserDetails userDetails, Pageable pageable);
 }

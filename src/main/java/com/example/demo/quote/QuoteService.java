@@ -63,4 +63,8 @@ public class QuoteService {
   public List<Quote> getQuotesByUserDetails(UserDetails userDetails) {
     return quoteRepository.findByUserDetails(userDetails);
   }
+
+  public Page<Quote> getQuotesByUserDetails(UserDetails userDetails, Pageable pageable) {
+    return quoteRepository.findByUserDetailsOrderByIdAsc(userDetails, pageable);
+  }
 }
