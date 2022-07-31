@@ -245,3 +245,8 @@ blockquote p::after {
   text-decoration: none;
   color: black !important;
 }
+
+/* Utilities */
+.italic {
+  font-style: italic;
+}

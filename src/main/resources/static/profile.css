@@ -1,6 +1,21 @@
 .root_profile .information > h2,
-.root_profile .favorite-quotes > p,
-.root_profile .favorite-authors > p {
+.root_profile .favorite-quotes > h4,
+.root_profile .favorite-authors > h4 {
   border-bottom: 1px solid var(--base-border-color);
   text-transform: capitalize;
+}
+
+.information,
+.favorite-quotes,
+.favorite-authors {
+  margin-bottom: 40px;
+}
+
+.root_profile .favorite-quotes .favorite-quote {
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+.root_profile .favorite-quotes .favorite-quote:not(:last-child) {
+  border-bottom: 1px solid var(--base-border-color);
 }
