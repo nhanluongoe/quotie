@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.author.Author;
+import com.example.demo.user.UserDetails;
 
 @Service
 public class QuoteService {
@@ -57,5 +58,9 @@ public class QuoteService {
 
   public Page<Quote> getQuotesByQuery(String query, Pageable pageable) {
     return quoteRepository.findByQuery(query, pageable);
+  }
+
+  public List<Quote> getQuotesByUserDetails(UserDetails userDetails) {
+    return quoteRepository.findByUserDetails(userDetails);
   }
 }

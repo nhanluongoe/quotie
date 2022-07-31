@@ -12,6 +12,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.author.Author;
+import com.example.demo.user.UserDetails;
 
 @Repository
 public interface QuoteRepository extends JpaRepository<Quote, Long> {
@@ -35,4 +36,5 @@ public interface QuoteRepository extends JpaRepository<Quote, Long> {
   @Query(value = "SELECT * FROM quote WHERE TO_TSVECTOR(content) @@ TO_TSQUERY(?1) ORDER BY id", nativeQuery = true)
   public Page<Quote> findByQuery(String query, Pageable pageable);
 
+  List<Quote> findByUserDetails(UserDetails userDetails);
 }
