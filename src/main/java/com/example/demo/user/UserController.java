@@ -18,10 +18,10 @@ public class UserController {
 
   @GetMapping(value = "/profile")
   public String profilePage(Principal principal, Model model) {
-    User currentUser = userService.getUserByUsername(principal.getName());
-    model.addAttribute("currentUser", currentUser);
+    User user = userService.getUserByUsername(principal.getName());
+    model.addAttribute("user", user);
 
-    UserDetails userDetails = userDetailsService.getUserDetailsByUserId(currentUser.getId());
+    UserDetails userDetails = userDetailsService.getUserDetailsByUserId(user.getId());
     if (userDetails != null) {
       model.addAttribute("userDetails", userDetails);
     }
