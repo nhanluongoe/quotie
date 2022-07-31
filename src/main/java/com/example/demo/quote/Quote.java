@@ -17,6 +17,7 @@ import javax.validation.constraints.NotBlank;
 
 import com.example.demo.author.Author;
 import com.example.demo.tag.Tag;
+import com.example.demo.user.UserDetails;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -44,6 +45,10 @@ public class Quote {
   @ManyToOne
   @JoinColumn(name = "author_id")
   private Author author;
+
+  @ManyToMany
+  @JoinTable(name = "user_details_quote", joinColumns = @JoinColumn(name = "quote_id"), inverseJoinColumns = @JoinColumn(name = "user_details_id"))
+  private List<UserDetails> userDetails;
 
   @ManyToMany
   @JoinTable(name = "quote_tag", joinColumns = @JoinColumn(name = "quote_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
