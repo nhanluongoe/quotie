@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -52,6 +53,10 @@ public class User {
   @ManyToMany(cascade = CascadeType.MERGE)
   @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
   private Set<Role> roles = new HashSet<>();
+
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "user_detail_id")
+  private UserDetails userDetails;
 
   public Set<Role> getRoles() {
     return roles;
