@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserDetailsRepository extends JpaRepository<UserDetails, Long> {
-  @Query(value = "SELECT * FROM user_details ud LEFT OUTER JOIN userq u ON ud.id = ?1", nativeQuery = true)
+  @Query(value = "SELECT * FROM user_details ud LEFT OUTER JOIN userq u ON ud.id = u.user_detail_id WHERE u.id = ?1", nativeQuery = true)
   UserDetails findByUserId(Long id);
 
   @Modifying
