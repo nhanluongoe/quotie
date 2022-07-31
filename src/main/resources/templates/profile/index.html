@@ -20,6 +20,7 @@
       <h2 th:text="${user.name}"></h2>
       <div th:if="${userDetails}" class="user-details">
         <p th:text="${userDetails.favoriteQuote}" class="user-details-sayings quote"></p>
+        <p><strong>Joined in: </strong><span th:text="${userDetails.createdAt}"></span></p>
         <p class="user-details-about-me"><strong>About me: </strong> <span th:text="${userDetails.aboutMe}"></span></p>
       </div>
     </section>
