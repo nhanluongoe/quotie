@@ -18,6 +18,11 @@ import javax.validation.constraints.NotBlank;
 import com.example.demo.author.Author;
 import com.example.demo.tag.Tag;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "quote", indexes = @Index(name = "content_index", columnList = "content"))
 public class Quote {
@@ -43,52 +48,4 @@ public class Quote {
   @ManyToMany
   @JoinTable(name = "quote_tag", joinColumns = @JoinColumn(name = "quote_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
   private List<Tag> tags;
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getContent() {
-    return content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public Author getAuthor() {
-    return author;
-  }
-
-  public void setAuthor(Author author) {
-    this.author = author;
-  }
-
-  public List<Tag> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<Tag> tags) {
-    this.tags = tags;
-  }
-
-  public Long getUpVotes() {
-    return upVotes;
-  }
-
-  public void setUpVotes(Long upVotes) {
-    this.upVotes = upVotes;
-  }
-
-  public Long getDownVotes() {
-    return downVotes;
-  }
-
-  public void setDownVotes(Long downVotes) {
-    this.downVotes = downVotes;
-  }
 }
