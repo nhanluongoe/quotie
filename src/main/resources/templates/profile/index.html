@@ -25,10 +25,17 @@
       </div>
     </section>
     <section class="favorite-quotes">
-      <p>[[${user.name.toUpperCase()}]]'s favorite quotes</p>
+      <h4>[[${user.name.toUpperCase()}]]'s favorite quotes</h4>
+      <div th:each="quote : ${likedQuotes}" class="favorite-quote">
+        <p th:text="${quote.content}" class="quote italic"></p>
+        <p th:text="${'__ ' + quote.author.name}"></p>
+      </div>
+      <div th:if="${hasMore}">
+        <a href="#">See more...</a>
+      </div>
     </section>
     <section class="favorite-authors">
-      <p>[[${user.name.toUpperCase()}]]'s favorite authors</p>
+      <h4>[[${user.name.toUpperCase()}]]'s favorite authors</h4>
     </section>
   </div>
   <div id="footer" th:replace="fragments/footer :: footer" />
