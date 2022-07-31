@@ -4,6 +4,7 @@
 
   /* General configuration */
   --base-radius: 5px;
+  --base-border-color: #7d9d85;
 
   /* Button */
   --button-radius: 5px;
