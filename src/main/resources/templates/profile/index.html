@@ -10,20 +10,26 @@
 <head>
   <title>Profile</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <!-- <link id="home-static-resources" rel="stylesheet" type="text/css" th:href="@{/home.css}"
-    href="../../static/home.css" /> -->
+  <link id="static-resources" rel="stylesheet" type="text/css" th:href="@{/profile.css}" />
 </head>
 
 <body>
   <div id="header" th:replace="fragments/header :: header" />
-  <div id="main-content">
+  <div id="main-content" class="root_profile">
     <section class="information">
       <h2 th:text="${currentUser.name}"></h2>
+      <div>
+
+      </div>
     </section>
-    <section>
+    <section class="favorite-quotes">
       <p>[[${currentUser.name}]]'s favorite quotes</p>
+      <div th:if="${userDetails}">
+        <p th:text="${userDetails.favoriteQuote}"></p>
+        <p>user details exists</p>
+      </div>
     </section>
-    <section>
+    <section class="favorite-authors">
       <p>[[${currentUser.name}]]'s favorite authors</p>
     </section>
   </div>
