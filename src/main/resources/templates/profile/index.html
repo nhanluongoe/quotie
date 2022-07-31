@@ -18,16 +18,16 @@
   <div id="main-content" class="root_profile">
     <section class="information">
       <h2 th:text="${user.name}"></h2>
-    </section>
-    <section class="favorite-quotes">
-      <p>[[${user.name}]]'s favorite quotes</p>
-      <div th:if="${userDetails}">
-        <p th:text="${userDetails.favoriteQuote}"></p>
-        <p>user details exists</p>
+      <div th:if="${userDetails}" class="user-details">
+        <p th:text="${userDetails.favoriteQuote}" class="user-details-sayings quote"></p>
+        <p class="user-details-about-me"><strong>About me: </strong> <span th:text="${userDetails.aboutMe}"></span></p>
       </div>
     </section>
+    <section class="favorite-quotes">
+      <p>[[${user.name.toUpperCase()}]]'s favorite quotes</p>
+    </section>
     <section class="favorite-authors">
-      <p>[[${user.name}]]'s favorite authors</p>
+      <p>[[${user.name.toUpperCase()}]]'s favorite authors</p>
     </section>
   </div>
   <div id="footer" th:replace="fragments/footer :: footer" />

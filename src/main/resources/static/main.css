@@ -197,6 +197,14 @@ blockquote p::after {
   content: "\201D";
 }
 
+.quote::before {
+  content: "\201C";
+}
+
+.quote::after {
+  content: "\201D";
+}
+
 .quote-container {
   display: grid;
   grid-template-columns: 33% 33% 33%;

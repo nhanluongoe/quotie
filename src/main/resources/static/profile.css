@@ -2,4 +2,5 @@
 .root_profile .favorite-quotes > p,
 .root_profile .favorite-authors > p {
   border-bottom: 1px solid var(--base-border-color);
+  text-transform: capitalize;
 }
