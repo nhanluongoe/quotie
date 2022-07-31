@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/quote_db
     username: postgres
-    password: 
+    password:
   jpa:
     properties:
       hibernate:
@@ -11,3 +11,11 @@ spring:
     hibernate:
       ddl-auto: update
     # show-sql: true
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+        #   desciptor:
+        #     sql: trace
+        # SQL: debug
