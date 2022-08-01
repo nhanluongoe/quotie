@@ -1,6 +1,7 @@
 package com.example.demo.author;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -46,5 +47,5 @@ public class Author {
   private List<Quote> quotes;
 
   @ManyToMany(mappedBy = "likedAuthors")
-  private List<UserDetails> userDetails;
+  private Set<UserDetails> userDetails;
 }

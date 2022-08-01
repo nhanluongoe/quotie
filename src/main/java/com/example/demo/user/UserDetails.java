@@ -1,7 +1,6 @@
 package com.example.demo.user;
 
 import java.sql.Date;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -56,5 +55,5 @@ public class UserDetails {
 
   @ManyToMany
   @JoinTable(name = "user_details_author", joinColumns = @JoinColumn(name = "user_details_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
-  private List<Author> likedAuthors;
+  private Set<Author> likedAuthors;
 }
