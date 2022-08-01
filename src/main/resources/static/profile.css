@@ -12,12 +12,14 @@
 }
 
 .root_profile .favorite-quotes .favorite-quote,
-.root_profile-quote .favorite-quote {
+.root_profile-quote .favorite-quote,
+.root_profile .favorite-authors .favorite-author {
   margin-bottom: 10px;
   margin-left: 15px;
 }
 
 .root_profile .favorite-quotes .favorite-quote:not(:last-child),
-.root_profile-quote .favorite-quote:not(:last-child) {
+.root_profile-quote .favorite-quote:not(:last-child),
+.root_profile .favorite-authors .favorite-author:not(:last-child) {
   border-bottom: 1px solid var(--base-border-color);
 }
