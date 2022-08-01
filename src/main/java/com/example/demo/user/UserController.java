@@ -48,8 +48,8 @@ public class UserController {
       Pageable quotePagination = PageRequest.of(0, 5);
       Page<Quote> likedQuotesPage = quoteService.getQuotesByUserDetails(userDetails, quotePagination);
       model.addAttribute("likedQuotes", likedQuotesPage);
-      int numberOfPages = likedQuotesPage.getTotalPages();
-      model.addAttribute("hasMoreQuotes", numberOfPages > 1);
+      int numberOfQuotePages = likedQuotesPage.getTotalPages();
+      model.addAttribute("hasMoreQuotes", numberOfQuotePages > 1);
 
       Pageable authorPagination = PageRequest.of(0, 5);
       Page<Author> likedAuthorsPage = authorService.getAuthorsByUserDetails(userDetails, authorPagination);
