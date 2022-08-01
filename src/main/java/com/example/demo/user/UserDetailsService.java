@@ -1,14 +1,11 @@
 package com.example.demo.user;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.quote.Quote;
+import com.example.demo.author.AuthorRepository;
 import com.example.demo.quote.QuoteRepository;
 
 @Service
@@ -20,6 +17,9 @@ public class UserDetailsService {
   @Autowired
   private QuoteRepository quoteRepository;
 
+  @Autowired
+  private AuthorRepository authorRepository;
+
   public UserDetails getUserById(Long id) {
     return userDetailsRepository.findById(id).orElse(null);
   }
@@ -30,13 +30,14 @@ public class UserDetailsService {
 
   @Transactional
   public void likeQuote(Long userDetailsId, Long quoteId) {
-    UserDetails userDetails = userDetailsRepository.findById(userDetailsId).orElse(null);
-    List<Quote> existingQuotes = quoteRepository.findByUserDetails(userDetails);
-    List<Long> existingQuoteIds = existingQuotes.stream().map(q -> q.getId()).collect(Collectors.toList());
-    if (existingQuoteIds.contains(quoteId)) {
-      return;
-    }
-
     userDetailsRepository.likeQuote(userDetailsId, quoteId);
   }
+
+  // @Transactional
+  // public void likeAuthor(Long userDetailsId, Long authorId) {
+  // UserDetails userDetails =
+  // userDetailsRepository.findById(userDetailsId).orElse(null);
+  // List<Author> existingAuthors = authorRepository
+
+  // }
 }
