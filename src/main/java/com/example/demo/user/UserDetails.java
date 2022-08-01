@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -16,6 +18,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.example.demo.author.Author;
 import com.example.demo.quote.Quote;
 
 import lombok.Getter;
@@ -49,4 +52,8 @@ public class UserDetails {
 
   @ManyToMany(mappedBy = "userDetails")
   private List<Quote> likedQuotes;
+
+  @ManyToMany
+  @JoinTable(name = "user_details_author", joinColumns = @JoinColumn(name = "user_details_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
+  private List<Author> likedAuthors;
 }
