@@ -40,7 +40,7 @@ public class UserController {
     if (userDetails != null) {
       model.addAttribute("userDetails", userDetails);
 
-      Pageable pagination = PageRequest.of(0, 10);
+      Pageable pagination = PageRequest.of(0, 5);
       Page<Quote> likedQuotesPage = quoteService.getQuotesByUserDetails(userDetails, pagination);
       model.addAttribute("likedQuotes", likedQuotesPage);
 
