@@ -18,7 +18,8 @@
   <div id="main-content" class="root_profile-author">
     <h4>[[${user.name.toUpperCase()}]]'s favorite authors</h4>
     <div th:each="author : ${authorsPage}" class="favorite-author">
-      <p th:text="${author.name} + ' (' + ${author.dob} + ' - ' + ${author.dod} + ')'"></p>
+      <p><a th:href="@{/author/{id}(id = ${author.id})}">[[${author.name}]]</a><span> ([[${author.dob}]] -
+          [[${author.dod}]])</span></p>
       <p th:text="${author.biography}"></p>
     </div>
 

@@ -19,7 +19,7 @@
     <h4>[[${user.name.toUpperCase()}]]'s favorite quotes</h4>
     <div th:each="quote : ${quotesPage}" class="favorite-quote">
       <p th:text="${quote.content}" class="quote italic"></p>
-      <p th:text="${'__ ' + quote.author.name}"></p>
+      <p><a th:href="@{/author/{id}(id = ${quote.author.id})}">__ [[${quote.author.name}]]</a></p>
     </div>
 
     <div class="pagination" th:if="${quotesPage.totalPages > 1}">
