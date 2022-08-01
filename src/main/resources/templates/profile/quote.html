@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/main-layout :: main-fragment(  
+  ~{::title},
+  ~{:: #static-resources},
+  ~{:: #header},
+  ~{:: #main-content},  
+  ~{:: #footer}
+  )}">
+
+<head>
+  <title>Profile | Quotes</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link id="static-resources" rel="stylesheet" type="text/css" th:href="@{/profile.css}" />
+</head>
+
+<body>
+  <div id="header" th:replace="fragments/header :: header" />
+  <div id="main-content" class="root_profile-quote">
+    <h4>[[${user.name.toUpperCase()}]]'s favorite quotes</h4>
+    <div th:each="quote : ${quotesPage}" class="favorite-quote">
+      <p th:text="${quote.content}" class="quote italic"></p>
+      <p th:text="${'__ ' + quote.author.name}"></p>
+    </div>
+
+    <div class="pagination" th:if="${quotesPage.totalPages > 1}">
+      <a th:href="@{/profile/quote?page={page}(page=${quotesPage.number - 1})}"
+        th:class="${quotesPage.number == 0} ? a-disabled">&laquo; previous</a>
+      <div th:each="pageNumber : ${pageNumbers}">
+        <a th:href="@{/profile/quote?page={page}(page=${pageNumber - 1})}" th:text="${pageNumber}"
+          th:class="${pageNumber==quotesPage.number + 1} ? active"></a>
+      </div>
+      <a th:href="@{/profile/quote?page={page}(page=${quotesPage.number + 1})}"
+        th:class="${quotesPage.number == quotesPage.totalPages - 1} ? a-disabled">next &raquo;</a>
+    </div>
+  </div>
+  <div id="footer" th:replace="fragments/footer :: footer" />
+</body>

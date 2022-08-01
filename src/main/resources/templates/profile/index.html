@@ -31,7 +31,7 @@
         <p th:text="${'__ ' + quote.author.name}"></p>
       </div>
       <div th:if="${hasMore}">
-        <a href="#">See more...</a>
+        <a th:href="@{/profile/quote}">See more...</a>
       </div>
     </section>
     <section class="favorite-authors">
