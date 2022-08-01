@@ -250,3 +250,7 @@ blockquote p::after {
 .italic {
   font-style: italic;
 }
+
+.font-size-12 {
+  font-size: 12px;
+}
