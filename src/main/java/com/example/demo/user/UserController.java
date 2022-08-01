@@ -40,12 +40,13 @@ public class UserController {
     if (userDetails != null) {
       model.addAttribute("userDetails", userDetails);
 
-      Pageable pagination = PageRequest.of(0, 5);
-      Page<Quote> likedQuotesPage = quoteService.getQuotesByUserDetails(userDetails, pagination);
+      Pageable quotePagination = PageRequest.of(0, 5);
+      Page<Quote> likedQuotesPage = quoteService.getQuotesByUserDetails(userDetails, quotePagination);
       model.addAttribute("likedQuotes", likedQuotesPage);
-
       int numberOfPages = likedQuotesPage.getTotalPages();
       model.addAttribute("hasMoreQuotes", numberOfPages > 1);
+
+      
     }
 
     return "profile/index";
