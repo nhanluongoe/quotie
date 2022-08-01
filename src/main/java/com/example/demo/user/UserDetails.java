@@ -2,6 +2,7 @@ package com.example.demo.user;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -51,7 +52,7 @@ public class UserDetails {
   private User user;
 
   @ManyToMany(mappedBy = "userDetails")
-  private List<Quote> likedQuotes;
+  private Set<Quote> likedQuotes;
 
   @ManyToMany
   @JoinTable(name = "user_details_author", joinColumns = @JoinColumn(name = "user_details_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))

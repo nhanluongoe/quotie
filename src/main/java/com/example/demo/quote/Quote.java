@@ -1,6 +1,7 @@
 package com.example.demo.quote;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -48,7 +49,7 @@ public class Quote {
 
   @ManyToMany
   @JoinTable(name = "user_details_quote", joinColumns = @JoinColumn(name = "quote_id"), inverseJoinColumns = @JoinColumn(name = "user_details_id"))
-  private List<UserDetails> userDetails;
+  private Set<UserDetails> userDetails;
 
   @ManyToMany
   @JoinTable(name = "quote_tag", joinColumns = @JoinColumn(name = "quote_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
