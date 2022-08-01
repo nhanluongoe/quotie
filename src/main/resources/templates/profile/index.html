@@ -36,8 +36,12 @@
     </section>
     <section class="favorite-authors">
       <h4>[[${user.name.toUpperCase()}]]'s favorite authors</h4>
-      <div>
-
+      <div th:each="author : ${likedAuthors}" class="favorite-author">
+        <p th:text="${author.name} + ' (' + ${author.dob} + ' - ' + ${author.dod} + ')'"></p>
+        <p th:text="${author.biography}"></p>
+      </div>
+      <div th:if="${hasMoreAuthors}">
+        <a th:href="@{/profile/author}">See more...</a>
       </div>
     </section>
   </div>
