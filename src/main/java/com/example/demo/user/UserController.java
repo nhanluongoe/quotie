@@ -45,7 +45,7 @@ public class UserController {
       model.addAttribute("likedQuotes", likedQuotesPage);
 
       int numberOfPages = likedQuotesPage.getTotalPages();
-      model.addAttribute("hasMore", numberOfPages > 1);
+      model.addAttribute("hasMoreQuotes", numberOfPages > 1);
     }
 
     return "profile/index";

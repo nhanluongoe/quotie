@@ -30,12 +30,15 @@
         <p th:text="${quote.content}" class="quote italic"></p>
         <p th:text="${'__ ' + quote.author.name}"></p>
       </div>
-      <div th:if="${hasMore}">
+      <div th:if="${hasMoreQuotes}">
         <a th:href="@{/profile/quote}">See more...</a>
       </div>
     </section>
     <section class="favorite-authors">
       <h4>[[${user.name.toUpperCase()}]]'s favorite authors</h4>
+      <div>
+
+      </div>
     </section>
   </div>
   <div id="footer" th:replace="fragments/footer :: footer" />
