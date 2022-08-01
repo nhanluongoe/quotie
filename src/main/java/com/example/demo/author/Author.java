@@ -14,6 +14,11 @@ import javax.validation.constraints.NotEmpty;
 
 import com.example.demo.quote.Quote;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "author")
 public class Author {
@@ -38,51 +43,4 @@ public class Author {
   @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
   private List<Quote> quotes;
 
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public List<Quote> getQuotes() {
-    return quotes;
-  }
-
-  public void setQuotes(List<Quote> quotes) {
-    this.quotes = quotes;
-  }
-
-  public String getDob() {
-    return dob;
-  }
-
-  public void setDob(String dob) {
-    this.dob = dob;
-  }
-
-  public String getDod() {
-    return dod;
-  }
-
-  public void setDod(String dod) {
-    this.dod = dod;
-  }
-
-  public String getBiography() {
-    return biography;
-  }
-
-  public void setBiography(String biography) {
-    this.biography = biography;
-  }
 }
