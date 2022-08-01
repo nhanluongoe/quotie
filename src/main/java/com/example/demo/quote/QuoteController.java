@@ -52,6 +52,9 @@ public class QuoteController {
     UserDetails userDetails = userDetailsService.getUserDetailsByUserId(user.getId());
     userDetailsService.likeQuote(userDetails.getId(), id);
 
+    Long authorId = quoteService.getQuoteById(id).getAuthor().getId();
+    userDetailsService.likeAuthor(userDetails.getId(), authorId);
+
     return "redirect:" + currentUrl + "?page=" + page + "&" + "query=" + query;
   }
 }

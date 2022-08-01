@@ -15,9 +15,8 @@ public interface UserDetailsRepository extends JpaRepository<UserDetails, Long> 
   @Query(value = "INSERT INTO user_details_quote(user_details_id, quote_id) VALUES(?1, ?2) ON CONFLICT ON CONSTRAINT user_details_quote_pkey DO NOTHING", nativeQuery = true)
   void likeQuote(Long userDetailsId, Long quoteId);
 
-  // @Modifying
-  // @Query(value = "INSERT INTO user_details_author(user_details_id, author_id)
-  // VALUES (?1, ?2)")
-  // void likeAuthor(Long userDetailsId, Long authorId);
+  @Modifying
+  @Query(value = "INSERT INTO user_details_author(user_details_id, author_id) VALUES (?1, ?2) ON CONFLICT ON CONSTRAINT user_details_author_pkey DO NOTHING", nativeQuery = true)
+  void likeAuthor(Long userDetailsId, Long authorId);
 
 }
