@@ -80,4 +80,28 @@ public class UserController {
 
     return "profile/quote";
   }
+
+  @GetMapping(value = "/author")
+  public String profileAuthor(@RequestParam(defaultValue = "0") Integer page, Principal principal, Model model) {
+    UserDetails userDetails = getCurrentUserDetails(principal, model);
+
+    Pageable pagination = PageRequest.of(page, 12);
+    Page<Author> authorsPage = authorService.getAuthorsByUserDetails(userDetails, pagination);
+    model.addAttribute("authorsPage", authorsPage);
+
+    int totalPages = authorsPage.getTotalPages();
+    if (totalPages > 0) {
+      List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().collect(Collectors.toList());
+      model.addAttribute("pageNumbers", pageNumbers);
+    }
+
+    return "profile/author";
+  }
+
+  public UserDetails getCurrentUserDetails(Principal principal, Model model) {
+    User user = userService.getUserByUsername(principal.getName());
+    model.addAttribute("user", user);
+    UserDetails userDetails = userDetailsService.getUserDetailsByUserId(user.getId());
+    return userDetails;
+  }
 }
