@@ -38,10 +38,8 @@ public class UserController {
 
   @GetMapping
   public String profilePage(Principal principal, Model model) {
-    User user = userService.getUserByUsername(principal.getName());
-    model.addAttribute("user", user);
+    UserDetails userDetails = getCurrentUserDetails(principal, model);
 
-    UserDetails userDetails = userDetailsService.getUserDetailsByUserId(user.getId());
     if (userDetails != null) {
       model.addAttribute("userDetails", userDetails);
 
@@ -56,7 +54,6 @@ public class UserController {
       model.addAttribute("likedAuthors", likedAuthorsPage);
       int numberOfAuthorPages = likedAuthorsPage.getTotalPages();
       model.addAttribute("hasMoreAuthors", numberOfAuthorPages > 1);
-
     }
 
     return "profile/index";
@@ -64,9 +61,7 @@ public class UserController {
 
   @GetMapping(value = "/quote")
   public String profileQuote(@RequestParam(defaultValue = "0") Integer page, Principal principal, Model model) {
-    User user = userService.getUserByUsername(principal.getName());
-    model.addAttribute("user", user);
-    UserDetails userDetails = userDetailsService.getUserDetailsByUserId(user.getId());
+    UserDetails userDetails = getCurrentUserDetails(principal, model);
 
     Pageable pagination = PageRequest.of(page, 12);
     Page<Quote> quotesPage = quoteService.getQuotesByUserDetails(userDetails, pagination);
