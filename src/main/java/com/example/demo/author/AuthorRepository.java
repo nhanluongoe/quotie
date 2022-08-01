@@ -2,9 +2,13 @@ package com.example.demo.author;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import com.example.demo.user.UserDetails;
 
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
@@ -16,4 +20,6 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
 
   @Query(value = "UPDATE author SET name = ?1, day_of_birth = ?2, day_of_death = ?3, biography = ?4 WHERE id = ?5", nativeQuery = true)
   public Author updateAuthorById(String name, String dob, String dod, String bio, Long id);
+
+  Page<Author> findByUserDetails(UserDetails userDetails, Pageable pageable);
 }

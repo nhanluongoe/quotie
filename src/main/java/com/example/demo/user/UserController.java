@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.author.Author;
+import com.example.demo.author.AuthorService;
 import com.example.demo.quote.Quote;
 import com.example.demo.quote.QuoteService;
 
@@ -31,6 +33,9 @@ public class UserController {
   @Autowired
   private QuoteService quoteService;
 
+  @Autowired
+  private AuthorService authorService;
+
   @GetMapping
   public String profilePage(Principal principal, Model model) {
     User user = userService.getUserByUsername(principal.getName());
@@ -46,7 +51,12 @@ public class UserController {
       int numberOfPages = likedQuotesPage.getTotalPages();
       model.addAttribute("hasMoreQuotes", numberOfPages > 1);
 
-      
+      Pageable authorPagination = PageRequest.of(0, 5);
+      Page<Author> likedAuthorsPage = authorService.getAuthorsByUserDetails(userDetails, authorPagination);
+      model.addAttribute("likedAuthors", likedAuthorsPage);
+      int numberOfAuthorPages = likedAuthorsPage.getTotalPages();
+      model.addAttribute("hasMoreAuthors", numberOfAuthorPages > 1);
+
     }
 
     return "profile/index";
