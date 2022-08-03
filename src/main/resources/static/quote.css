@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
+
+.root_quote .root_quote-quote {
+  margin: 40px 10px;
+}
+
+.root_quote .root_quote-quote p:first-child {
+  text-align: center;
+  font-size: 70px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  font-family: "Caveat", cursive;
+}
+
+.root_quote .root_quote-quote p:nth-child(2) {
+  text-align: right;
+  font-size: 18px;
+  margin-right: 30px;
+  font-family: "Caveat", cursive;
+}
+
+.root_quote .root_quote-quote p:nth-child(2)::before {
+  content: "-";
+}
