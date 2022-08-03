@@ -6,6 +6,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.comment.Comment;
+import com.example.demo.comment.CommentService;
 import com.example.demo.user.User;
 import com.example.demo.user.UserDetails;
 import com.example.demo.user.UserDetailsService;
@@ -26,12 +31,15 @@ public class QuoteController {
   private QuoteService quoteService;
   private UserDetailsService userDetailsService;
   private UserService userService;
+  private CommentService commentService;
 
   @Autowired
-  public QuoteController(QuoteService quoteService, UserDetailsService userDetailsService, UserService userService) {
+  public QuoteController(QuoteService quoteService, UserDetailsService userDetailsService, UserService userService,
+      CommentService commentService) {
     this.quoteService = quoteService;
     this.userDetailsService = userDetailsService;
     this.userService = userService;
+    this.commentService = commentService;
   }
 
   @GetMapping
@@ -56,5 +64,17 @@ public class QuoteController {
     userDetailsService.likeAuthor(userDetails.getId(), authorId);
 
     return "redirect:" + currentUrl + "?page=" + page + "&" + "query=" + query;
+  }
+
+  @GetMapping(value = "/{id}")
+  public String quote(@PathVariable("id") Long id, @RequestParam(defaultValue = "0") Integer page, Model model) {
+    Quote quote = quoteService.getQuoteById(id);
+    model.addAttribute("quote", quote);
+
+    Pageable commentPagination = PageRequest.of(page, 10);
+    Page<Comment> comments = commentService.getCommentsByQuote(quote, commentPagination);
+    model.addAttribute("comments", comments);
+
+    return "quote/index";
   }
 }
