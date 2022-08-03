@@ -20,6 +20,13 @@
       <p>[[${quote.content}]]</p>
       <p><a th:href="@{/author/{id}(id=${quote.author.id})}">[[${quote.author.name}]]</a></p>
     </section>
+    <section sec:authorize="isAuthenticated()" class="root_quote-add-comment">
+      <h2>Add Comment</h2>
+      <form th:action="@{/quote/comment/{id}(id=${quote.id})}" method="post">
+        <textarea name="content" rows="5"></textarea>
+        <button type="submit">Add</button>
+      </form>
+    </section>
     <section class="root_quote-comment">
       <h2>Comments</h2>
       <div th:each="comment : ${comments}">
@@ -28,13 +35,6 @@
           <p>[[${comment.content}]]</p>
         </div>
       </div>
-    </section>
-    <section sec:authorize="isAuthenticated()" class="root_quote-add-comment">
-      <h2>Add Comment</h2>
-      <form th:action="@{/quote/comment/{id}(id=${quote.id})}" method="post">
-        <textarea name="content" rows="5"></textarea>
-        <button type="submit">Add</button>
-      </form>
     </section>
   </div>
   <div id="footer" th:replace="fragments/footer :: footer" />
