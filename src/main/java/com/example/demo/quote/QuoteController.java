@@ -77,4 +77,16 @@ public class QuoteController {
 
     return "quote/index";
   }
+
+  @PostMapping(value = "/comment/{id}")
+  public String comment(@PathVariable("id") Long id, HttpServletRequest request, Principal principal) {
+    User user = userService.getUserByUsername(principal.getName());
+    UserDetails userDetails = userDetailsService.getUserDetailsByUserId(user.getId());
+    Quote quote = quoteService.getQuoteById(id);
+    String content = request.getParameter("content");
+
+    commentService.save(new Comment(content, userDetails, quote));
+
+    return "redirect:/quote/" + id;
+  }
 }

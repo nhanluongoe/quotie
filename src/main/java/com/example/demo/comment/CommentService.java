@@ -14,7 +14,10 @@ public class CommentService {
   private CommentRepository commentRepository;
 
   public Page<Comment> getCommentsByQuote(Quote quote, Pageable pageable) {
-    return commentRepository.findByQuote(quote, pageable);
+    return commentRepository.findByQuoteOrderByCreatedAtDesc(quote, pageable);
   }
 
+  public Comment save(Comment comment) {
+    return commentRepository.save(comment);
+  }
 }

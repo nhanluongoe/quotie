@@ -9,5 +9,5 @@ import com.example.demo.quote.Quote;
 
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-  Page<Comment> findByQuote(Quote quote, Pageable pageable);
+  Page<Comment> findByQuoteOrderByCreatedAtDesc(Quote quote, Pageable pageable);
 }
