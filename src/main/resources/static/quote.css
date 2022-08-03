@@ -47,7 +47,6 @@
 }
 
 .root_quote .root_quote-add-comment form button {
-  /* width: 100%; */
   border-radius: var(--base-radius);
   margin-bottom: 20px;
   background-color: var(--green);
