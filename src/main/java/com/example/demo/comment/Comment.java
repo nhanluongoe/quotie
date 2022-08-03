@@ -1,5 +1,7 @@
 package com.example.demo.comment;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,14 +12,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import com.example.demo.quote.Quote;
 import com.example.demo.user.UserDetails;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "comment")
 public class Comment {
@@ -37,4 +46,19 @@ public class Comment {
   @ManyToOne
   @JoinColumn(name = "quote_id")
   private Quote quote;
+
+  @Column(name = "created_at")
+  @CreationTimestamp
+  private Date createdAt;
+
+  @Column(name = "updated_at")
+  @UpdateTimestamp
+  private Date updatedAt;
+
+  public Comment(String content, UserDetails userDetails, Quote quote) {
+    this.content = content;
+    this.userDetails = userDetails;
+    this.quote = quote;
+  }
+
 }
