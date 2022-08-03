@@ -27,6 +27,9 @@
         <button type="submit">Add</button>
       </form>
     </section>
+    <section sec:authorize="!isAuthenticated()" class="root_quote-login-to-comment">
+      <a th:href="@{/login}">Login to comment!</a>
+    </section>
     <section class="root_quote-comment">
       <h2>Comments</h2>
       <div th:if="${comments.empty}">No comments yet. Be the first one!</div>

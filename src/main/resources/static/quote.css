@@ -54,3 +54,8 @@
   color: white;
   padding: var(--button-padding-y-axis) var(--button-padding-x-axis);
 }
+
+.root_quote .root_quote-login-to-comment {
+  text-align: center;
+  margin-bottom: 20px;
+}
