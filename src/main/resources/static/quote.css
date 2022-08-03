@@ -34,7 +34,7 @@
 .root_quote .root_quote-comment .comment {
   margin-bottom: 20px;
   border-radius: var(--base-radius);
-  background-color: rgb(235, 230, 230);
+  background-color: #f6f1ea;
   padding: 15px;
   border: none;
 }
