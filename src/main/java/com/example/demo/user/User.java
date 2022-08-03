@@ -61,6 +61,6 @@ public class User {
 
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "user_detail_id")
-  private UserDetails userDetails = new UserDetails();
+  private UserDetails userDetails = new UserDetails(this.name);
 
 }

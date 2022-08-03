@@ -36,6 +36,9 @@ public class UserDetails {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @Column(name = "name")
+  private String name;
+
   @Column(name = "favorite_quote")
   private String favoriteQuote;
 
@@ -62,4 +65,11 @@ public class UserDetails {
 
   @OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL)
   private List<Comment> comments;
+
+  public UserDetails() {
+  }
+
+  public UserDetails(String name) {
+    this.name = name;
+  }
 }
