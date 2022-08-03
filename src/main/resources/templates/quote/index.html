@@ -29,6 +29,7 @@
     </section>
     <section class="root_quote-comment">
       <h2>Comments</h2>
+      <div th:if="${comments.empty}">No comments yet. Be the first one!</div>
       <div th:each="comment : ${comments}">
         <div class="comment">
           <p><a th:href="@{/user/{id}(id=${comment.userDetails.id})}">[[${comment.userDetails.name}]]</a></p>
