@@ -10,8 +10,7 @@
 <head>
   <title>Author Detail</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link id="static-resources" rel="stylesheet" type="text/css" th:href="@{/quote.css}"
-    />
+  <link id="static-resources" rel="stylesheet" type="text/css" th:href="@{/quote.css}" />
 </head>
 
 <body>
@@ -20,6 +19,15 @@
     <section class="root_quote-quote">
       <p>[[${quote.content}]]</p>
       <p><a th:href="@{/author/{id}(id=${quote.author.id})}">[[${quote.author.name}]]</a></p>
+    </section>
+    <section class="root_quote-comment">
+      <h2>Comments</h2>
+      <div th:each="comment : ${comments}">
+        <div class="comment">
+          <p><a th:href="@{/user/{id}(id=${comment.userDetails.id})}">[[${comment.userDetails.name}]]</a></p>
+          <p>[[${comment.content}]]</p>
+        </div>
+      </div>
     </section>
   </div>
   <div id="footer" th:replace="fragments/footer :: footer" />
