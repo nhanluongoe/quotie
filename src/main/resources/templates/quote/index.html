@@ -29,6 +29,13 @@
         </div>
       </div>
     </section>
+    <section sec:authorize="isAuthenticated()" class="root_quote-add-comment">
+      <h2>Add Comment</h2>
+      <form th:action="@{/quote/comment/{id}(id=${quote.id})}" method="post">
+        <textarea name="content" rows="5"></textarea>
+        <button type="submit">Add</button>
+      </form>
+    </section>
   </div>
   <div id="footer" th:replace="fragments/footer :: footer" />
 </body>
