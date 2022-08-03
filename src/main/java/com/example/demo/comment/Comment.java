@@ -11,7 +11,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 import com.example.demo.quote.Quote;
-import com.example.demo.user.User;
 import com.example.demo.user.UserDetails;
 
 import lombok.Getter;
