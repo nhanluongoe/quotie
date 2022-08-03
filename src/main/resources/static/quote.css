@@ -22,3 +22,19 @@
 .root_quote .root_quote-quote p:nth-child(2)::before {
   content: "-";
 }
+
+.root_quote .root_quote-comment > div {
+  font-size: 14px;
+}
+
+.root_quote .root_quote-comment .comment p {
+  margin: 5px 15px;
+}
+
+.root_quote .root_quote-comment .comment {
+  margin-bottom: 20px;
+  border-radius: var(--base-radius);
+  background-color: rgb(235, 230, 230);
+  padding: 15px;
+  border: none;
+}
