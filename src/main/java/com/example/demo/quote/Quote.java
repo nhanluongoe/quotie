@@ -3,6 +3,7 @@ package com.example.demo.quote;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,10 +14,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import com.example.demo.author.Author;
+import com.example.demo.comment.Comment;
 import com.example.demo.tag.Tag;
 import com.example.demo.user.UserDetails;
 
@@ -54,4 +57,7 @@ public class Quote {
   @ManyToMany
   @JoinTable(name = "quote_tag", joinColumns = @JoinColumn(name = "quote_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
   private List<Tag> tags;
+
+  @OneToMany(mappedBy = "quote", cascade = CascadeType.ALL)
+  private List<Comment> comments;
 }

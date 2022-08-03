@@ -1,6 +1,7 @@
 package com.example.demo.user;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,6 +21,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.example.demo.author.Author;
+import com.example.demo.comment.Comment;
 import com.example.demo.quote.Quote;
 
 import lombok.Getter;
@@ -56,4 +59,7 @@ public class UserDetails {
   @ManyToMany
   @JoinTable(name = "user_details_author", joinColumns = @JoinColumn(name = "user_details_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
   private Set<Author> likedAuthors;
+
+  @OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL)
+  private List<Comment> comments;
 }
