@@ -32,13 +32,25 @@
     </section>
     <section class="root_quote-comment">
       <h2>Comments</h2>
-      <div th:if="${comments.empty}">No comments yet. Be the first one!</div>
-      <div th:each="comment : ${comments}">
+      <div th:if="${commentsPage.empty}">No comments yet. Be the first one!</div>
+      <div th:each="comment : ${commentsPage}">
         <div class="comment">
           <p><a th:href="@{/user/{id}(id=${comment.userDetails.id})}">[[${comment.userDetails.name}]]</a></p>
           <p>[[${comment.content}]]</p>
         </div>
+
       </div>
+      <div class="pagination" th:if="${commentsPage.totalPages > 1}">
+        <a th:href="@{/quote/{quoteId}?page={page}(quoteId=${quote.id}, page=${commentsPage.number - 1})}"
+          th:class="${commentsPage.number == 0} ? a-disabled">&laquo; previous</a>
+        <div th:each="pageNumber : ${pageNumbers}">
+          <a th:href="@{/quote/{quoteId}?page={page}(quoteId=${quote.id}, page=${pageNumber - 1})}"
+            th:text="${pageNumber}" th:class="${pageNumber==commentsPage.number + 1} ? active"></a>
+        </div>
+        <a th:href="@{/quote/{quoteId}?page={page}(quoteId=${quote.id}, page=${commentsPage.number + 1})}"
+          th:class="${commentsPage.number == commentsPage.totalPages - 1} ? a-disabled">next &raquo;</a>
+      </div>
+
     </section>
   </div>
   <div id="footer" th:replace="fragments/footer :: footer" />
