@@ -2,6 +2,8 @@ package com.example.demo.quote;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -72,8 +74,14 @@ public class QuoteController {
     model.addAttribute("quote", quote);
 
     Pageable commentPagination = PageRequest.of(page, 10);
-    Page<Comment> comments = commentService.getCommentsByQuote(quote, commentPagination);
-    model.addAttribute("comments", comments);
+    Page<Comment> commentsPage = commentService.getCommentsByQuote(quote, commentPagination);
+    model.addAttribute("commentsPage", commentsPage);
+
+    int totalPages = commentsPage.getTotalPages();
+    if (totalPages > 0) {
+      List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().collect(Collectors.toList());
+      model.addAttribute("pageNumbers", pageNumbers);
+    }
 
     return "quote/index";
   }
