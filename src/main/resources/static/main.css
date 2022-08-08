@@ -187,6 +187,24 @@ blockquote p {
   padding: 15px;
   background: #eee;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+blockquote p:hover {
+  background-color: var(--green);
+  color: white;
+}
+
+blockquote a {
+  color: inherit;
+}
+
+blockquote a:hover {
+  text-decoration: none;
+}
+
+blockquote a:visited {
+  color: inherit;
 }
 
 blockquote p::before {

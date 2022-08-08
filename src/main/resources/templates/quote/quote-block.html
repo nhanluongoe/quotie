@@ -10,7 +10,9 @@
               [[${quote.upVotes}]]</span></button>
         </form>
       </section>
-      <p>[[${quote.content}]]</p>
+      <a th:href="@{/quote/{id}(id = ${quote.id})}">
+        <p>[[${quote.content}]]</p>
+      </a>
     </blockquote>
     <figcaption><a th:href="@{/author/{id}(id=${quote.author.id})}">—[[${quote.author.name}]]</a></figcaption>
   </figure>
