@@ -37,6 +37,7 @@
         <div class="comment">
           <p><a th:href="@{/user/{id}(id=${comment.userDetails.id})}">[[${comment.userDetails.name}]]</a></p>
           <p>[[${comment.content}]]</p>
+          <p class="comment-time" th:text="${#dates.format(comment.createdAt, 'dd-MM-yyyy')}"></p>
         </div>
 
       </div>
