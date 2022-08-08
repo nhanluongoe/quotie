@@ -11,6 +11,8 @@
           th:href="@{/author}">Authors</a></li>
       <!-- <li th:classappend="${#request.requestURI.startsWith('/tag') ? 'nav-active' : ''}"><a href="/tag"
           th:href="@{/tag}">Tags</a> -->
+      <li th:classappend="${#request.requestURI == '/about' ? 'nav-active':''}"><a href="/about"
+          th:ref="@{/about}">About</a></li>
       </li>
     </ul>
   </nav>

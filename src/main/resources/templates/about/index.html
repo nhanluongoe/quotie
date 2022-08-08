@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/main-layout :: main-fragment(  
+  ~{::title},
+  ~{:: #static-resources},
+  ~{:: #header},
+  ~{:: #main-content},  
+  ~{:: #footer}
+  )}">
+
+<head>
+  <title>About</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link id="static-resources" rel="stylesheet" type="text/css" th:href="@{/about.css}" />
+</head>
+
+<body>
+  <div id="header" th:replace="fragments/header :: header" />
+  <div id="main-content">
+    <h1>About</h1>
+    <p>During the journey of life, we have experienced so many things and learned our own lessons. But we do not have
+      enough time to experience them all, simply just we do not have enough time and we will not have enough time, so
+      learn through others' life is a fantastic way.</p>
+    <p>Hope that through this site, quotes are widely delivered to people who are struggling or simply just need
+      inspiration can find help.</p>
+  </div>
+  <div id="footer" th:replace="fragments/footer :: footer" />
+</body>
