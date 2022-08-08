@@ -34,7 +34,6 @@ public class AuthorizationController {
   public String register(@Valid User user, BindingResult result) {
     String username = user.getUsername();
     User existedUser = userService.getUserByUsername(username);
-    System.out.println(existedUser);
     if (existedUser != null) {
       result.rejectValue("username", "error.user",
           "There is already a user registered with the username provided");
