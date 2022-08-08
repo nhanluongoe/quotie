@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.user.User;
+import com.example.demo.user.UserDetails;
 import com.example.demo.user.UserService;
 
 @Controller
@@ -43,6 +44,7 @@ public class AuthorizationController {
       return "security/register";
     }
 
+    user.setUserDetails(new UserDetails(user.getName()));
     userService.saveUser(user);
 
     return "redirect:/login?register=true";
