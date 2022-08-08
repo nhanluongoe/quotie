@@ -9,8 +9,8 @@
       <li th:classappend="${#request.requestURI == '/' ? 'nav-active':''}"><a href="/" th:ref="@{/}">Home</a></li>
       <li th:classappend="${#request.requestURI.startsWith('/author') ? 'nav-active' : ''}"><a href="/author"
           th:href="@{/author}">Authors</a></li>
-      <li th:classappend="${#request.requestURI.startsWith('/tag') ? 'nav-active' : ''}"><a href="/tag"
-          th:href="@{/tag}">Tags</a>
+      <!-- <li th:classappend="${#request.requestURI.startsWith('/tag') ? 'nav-active' : ''}"><a href="/tag"
+          th:href="@{/tag}">Tags</a> -->
       </li>
     </ul>
   </nav>
